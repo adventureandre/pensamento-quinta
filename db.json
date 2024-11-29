@@ -1,0 +1,28 @@
+{
+  "livros": [
+    {
+      "id": 1,
+      "imgSrc": "./assets/images/livro.png",
+      "price": "FROM $170,00",
+      "title": "The Creal Catsby"
+    },
+    {
+      "id": 2,
+      "imgSrc": "./assets/images/livro.png",
+      "price": "FROM $150,00",
+      "title": "To Kill a Mockingbird"
+    },
+    {
+      "id": 3,
+      "imgSrc": "./assets/images/livro.png",
+      "price": "FROM $200,00",
+      "title": "1984"
+    },
+    {
+      "id": 4,
+      "imgSrc": "./assets/images/livro.png",
+      "price": "FROM $180,00",
+      "title": "Pride and Prejudice"
+    }
+  ]
+}
