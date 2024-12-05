@@ -15,7 +15,8 @@ module.exports = {
         fundoBanner: "#566150"
       },
       fontFamily:{
-        sans:"Inter",
+        inter:['Inter','sans-serif'],
+        rockSalt: ['Rock Salt', 'cursive']
       }
     },
   },
