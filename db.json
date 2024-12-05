@@ -3,19 +3,19 @@
     {
       "id": 1,
       "imgSrc": "./assets/images/livro.png",
-      "price": "FROM $170,00",
+      "price": "37,90",
       "title": "O que Guardei na Gaveta"
     },
     {
       "id": 2,
       "imgSrc": "./assets/images/livro.png",
-      "price": "FROM $150,00",
+      "price": "37,90",
       "title": "To Kill a Mockingbird"
     },
     {
       "id": 3,
       "imgSrc": "./assets/images/livro.png",
-      "price": "FROM $200,00",
+      "price": "37,90",
       "title": "1984"
     }
   ]
