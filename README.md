@@ -1,50 +1,56 @@
-# React + TypeScript + Vite
+# Projeto pensamento de quinta
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 01  - Front
+- React Vite.
 
-Currently, two official plugins are available:
+## Utilizando
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Zustand para controle de estado Global.
+- Zod validação.
+- UseForm e zod para validar formularios.
+- phosphor para icons.
 
-## Expanding the ESLint configuration
+## Execução do Projeto
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Para executar o projeto, siga os passos abaixo:
 
-- Configure the top-level `parserOptions` property like this:
+### Pré-requisitos
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **Node** e **Npm**
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Passos para Execução
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+1. **Intalando dependencias**:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+   Execute o seguinte comando :
+
+   ```bash
+   npm i
+
+2. **Iniciar projeto**:
+  Execute o seguinte comando :
+    ```bash
+   npm run dev
+
+3. **Iniciar projeto**:
+  Execute o seguinte comando :
+    ```bash
+   npm run server
+
+4. **Acessar o Projeto**:
+
+   Após iniciar o projeto, você pode acessar o mesmo no seu navegador através do seguinte link:
+
+   ```
+   http://localhost:5173
+   ```
+
+   Não é necessário um token ou senha para acessar.
+
+## Credits
+
+
+
+## License
+
+
