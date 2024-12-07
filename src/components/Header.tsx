@@ -1,23 +1,44 @@
 import { useState } from 'react';
-import { ShoppingCart, List, UserCircle } from 'phosphor-react';
+import { ShoppingCart, List, UserCircle, MagnifyingGlass } from 'phosphor-react';
 import { Link } from 'react-router-dom';
 
 export const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <header className="pt-6 max-w-[1400px] w-full">
-            <div className='flex flex-row justify-between items-center px-12'>
-                <Link to="/">
-                    <img src="assets/images/logo.jpeg" alt="Coffee Delivery" className="w-[80px]" />
+        <header className="pt-6 max-w-[1600px] w-full mb-6">
+            <div className='flex flex-row justify-between items-center  px-5 gap-10 sm:gap-1'>
+                {/* Banner */}
+                <Link className='flex flex-row gap-3 w-[500px]  items-center' to="/">
+                    <img src="assets/images/logo.jpeg" alt="Pensamentos de quinta" className="w-[100px] min-w-20" />
+                    <h1 className='font-playfair font-bold text-sm hidden md:block'>A Editora Que Vai Te Encantar!</h1>
                 </Link>
 
-                <div className="flex flex-row items-center gap-4">
-                    <div className='flex  gap-3'>
+                {/* Menu */}
+                <nav className="hidden md:block  w-full mt-3 py-1 text-sm font-bold">
+                    <ul className="flex flex-row gap-12 justify-center">
+                        <li><a className='hover:underline underline-offset-2' href="#">Quem Somos</a></li>
+                        <li><a className='hover:underline underline-offset-2' href="#">Nossos Serviços</a></li>
+                        <li><a className='hover:underline underline-offset-2' href="#">Nossos Livros</a></li>
+                        <li><a className='hover:underline underline-offset-2' href="#">Nossos Autores</a></li>
+                    </ul>
+                </nav>
+
+                <form action="">
+                    <label htmlFor="search" className='flex rounded-full border border-spacing-2 bg-input bg-opacity-70 px-3 pt-1'>
+                        <input className='bg-inherit outline-none text-sm text-slate-800' id='search' type="search" placeholder='Digite o que você procura' />
+                        <MagnifyingGlass size={20} />
+                    </label>
+                </form>
+
+
+
+                <div className="flex flex-row items-center gap-1 ">
+                    <div className='flex  gap-2 w-[180px]'>
                         <UserCircle size={52} weight="fill" />
-                        <div className='flex flex-col'>
-                            <span>Bem-vindo(a)</span>
-                            <Link className='font-bold'
+                        <div className='flex-col hidden lg:flex'>
+                            <span className='text-sm'>Bem-vindo(a)</span>
+                            <Link className='font-bold text-xs'
                                 to="/">Entrar ou Cadastrar</Link>
                         </div>
                     </div>
@@ -40,14 +61,7 @@ export const Header = () => {
             </div>
 
 
-            <nav className="hidden md:block bg-secondary w-full mt-3 py-1 text-white font-bold">
-                <ul className="flex flex-row gap-12 justify-center">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Nossos Livros</a></li>
-                    <li><a href="#">Quem Somos</a></li>
-                    <li><a href="#">Autores</a></li>
-                </ul>
-            </nav>
+
 
 
             {isMenuOpen && (

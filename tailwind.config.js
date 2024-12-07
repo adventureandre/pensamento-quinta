@@ -12,11 +12,13 @@ module.exports = {
         accent: '#E5D2B8',
         background: '#F5F8FA',
         border: '#E1E8ED',
-        fundoBanner: "#566150"
+        fundoBanner: "#566150",
+        input:"#D9D9D9"
       },
       fontFamily:{
         inter:['Inter','sans-serif'],
-        rockSalt: ['Rock Salt', 'cursive']
+        rockSalt: ['Rock Salt', 'cursive'],
+        playfair: ['Playfair Display', 'serif']
       }
     },
   },
