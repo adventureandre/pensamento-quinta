@@ -10,8 +10,12 @@ export default defineConfig({
     port: 5173,
   },
   resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
+    alias: [
+      {
+        find: "@",
+        replacement: path.resolve(__dirname, "src"),
+        // Defina seus aliases aqui
+      },
+    ],
   },
 })

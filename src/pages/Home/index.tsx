@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 import { livrosStore } from "@/store/livrosStore";
 
-import { ProdutoListHome } from "./components/destaque";
+import { ProdutoListHome } from "./components/produtoList";
 import { HeaderHome } from "./components/header";
 import { FooterHome } from "./components/footer";
 import { CuriosidadeHome } from "./components/curiosidades";

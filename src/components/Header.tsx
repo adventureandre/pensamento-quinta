@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ShoppingCart, List, UserCircle, MagnifyingGlass } from 'phosphor-react';
 import { Link } from 'react-router-dom';
+import logo  from '../../public/assets/images/logo.jpeg'
 
 export const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,14 +12,14 @@ export const Header = () => {
                 <div className='flex flex-row justify-between items-center  px-5 gap-10 sm:gap-1'>
                     {/* Banner */}
                     <Link className='flex flex-row gap-3 w-[500px]  items-center' to="/">
-                        <img src="assets/images/logo.jpeg" alt="Pensamentos de quinta" className="w-[100px] min-w-20" />
+                        <img src={logo} alt="Pensamentos de quinta" className="w-[100px] min-w-20" />
                         <h1 className='font-playfair font-bold text-sm hidden md:block'>A Editora Que Vai Te Encantar!</h1>
                     </Link>
 
                     {/* Menu */}
                     <nav className="hidden md:block  w-full mt-3 py-1 text-sm font-bold">
                         <ul className="flex flex-row gap-12 justify-center">
-                            <li><a className='hover:underline underline-offset-2' href="/pedidos">Quem Somos</a></li>
+                            <li><a className='hover:underline underline-offset-2' href="/quemsomos">Quem Somos</a></li>
                             <li><a className='hover:underline underline-offset-2' href="#">Nossos Serviços</a></li>
                             <li><a className='hover:underline underline-offset-2' href="#">Nossos Livros</a></li>
                             <li><a className='hover:underline underline-offset-2' href="#">Nossos Autores</a></li>
@@ -40,7 +41,7 @@ export const Header = () => {
                             <div className='flex-col hidden lg:flex'>
                                 <span className='text-sm'>Bem-vindo(a)</span>
                                 <Link className='font-bold text-xs'
-                                    to="/">Entrar ou Cadastrar</Link>
+                                    to="/dashboard/inicio">Entrar ou Cadastrar</Link>
                             </div>
                         </div>
                         <Link to="/checkout" aria-disabled className="relative p-2 bg-secondary rounded-md [&[aria-disabled='true']]:pointer-events-none">
