@@ -20,9 +20,9 @@ export const Header = () => {
                     <nav className="hidden md:block w-full mt-3 py-1 text-sm font-bold">
                         <ul className="flex flex-row gap-12 justify-center">
                             <li><Link className='hover:underline underline-offset-2' to="/quemsomos">Quem Somos</Link></li>
-                            <li><Link className='hover:underline underline-offset-2' to="#">Nossos Serviços</Link></li>
-                            <li><Link className='hover:underline underline-offset-2' to="#">Nossos Livros</Link></li>
-                            <li><Link className='hover:underline underline-offset-2' to="#">Nossos Autores</Link></li>
+                            <li><Link className='hover:underline underline-offset-2' to="/nossosservicos">Nossos Serviços</Link></li>
+                            <li><Link className='hover:underline underline-offset-2' to="/nossoslivros">Nossos Livros</Link></li>
+                            <li><Link className='hover:underline underline-offset-2' to="/nossosautores">Nossos Autores</Link></li>
                         </ul>
                     </nav>
 
@@ -35,7 +35,9 @@ export const Header = () => {
 
                     <div className="flex flex-row items-center gap-1">
                         <div className='flex gap-2 w-[180px]'>
+                            <Link to="/login">
                             <UserCircle size={52} weight="fill" />
+                            </Link>
                             <div className='flex-col hidden lg:flex'>
                                 <span className='text-sm'>Bem-vindo(a)</span>
                                 <Link className='font-bold text-xs' to="/dashboard/inicio">Entrar ou Cadastrar</Link>
