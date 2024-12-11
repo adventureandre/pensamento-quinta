@@ -13,7 +13,7 @@ export const Header = () => {
                     {/* Banner */}
                     <Link className='flex flex-row gap-3 w-[500px] items-center' to="/">
                         <img src={logo} alt="Pensamentos de quinta" className="w-[100px] min-w-20" />
-                        <h1 className='font-playfair font-bold text-sm hidden md:block'>A Editora Que Vai Te Encantar!</h1>
+                        <h1 className='font-playfair font-bold text-sm hidden md:block'>A Editora Que Vai Te Encantar!!</h1>
                     </Link>
 
                     {/* Menu */}
