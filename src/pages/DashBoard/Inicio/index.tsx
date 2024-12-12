@@ -3,12 +3,12 @@ import 'tailwindcss/tailwind.css';
 
 export function InicioDashboard() {
     const [formData, setFormData] = useState({
-        fullName: 'Digite seu nome completo',
-        username: 'Digite seu nome de usuário',
-        email: 'Digite seu e-mail',
-        phone: 'Digite seu telefone',
-        birthDate: 'Digite sua data de nascimento',
-        cpf: 'Digite seu CPF',
+        fullName: 'Nome Completo',
+        username: 'Nome de Usuário',
+        email: 'E-mail',
+        phone: '+55 (xx) xxxxx-xxxx',
+        birthDate: 'Data de Nascimento',
+        cpf: 'CPF',
         password: '',
     });
 
@@ -35,7 +35,7 @@ export function InicioDashboard() {
     };
 
     return (
-        <div className="w-full max-w-4xl p-8 bg-[#ffffff] rounded-lg" style={{ fontFamily: 'Times New Roman, serif', boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.1)', borderTop: 'none', borderLeft: 'none' }}>
+        <div className="w-full max-w-4xl p-12 bg-[#ffffff] rounded-lg" style={{ fontFamily: 'Times New Roman, serif', boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.1)', borderTop: 'none', borderLeft: 'none' }}>
             <h1 className="text-2xl font-bold text-gray-800 mb-6">Dados Pessoais</h1>
 
             <form>
@@ -110,8 +110,8 @@ export function InicioDashboard() {
 
                 <hr className="border-gray-300 my-4" />
 
-                <div className="mb-6">
-                    <label className="block text-gray-700 mb-10">Minha senha</label>
+                <div className="mb-8">
+                    <label className="text-2xl font-bold text-gray-800 mb-8">Minha senha</label>
                     <div className="relative">
                         <input
                             id="hs-toggle-password"
