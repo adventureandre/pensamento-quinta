@@ -1,29 +1,34 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import 'tailwindcss/tailwind.css';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+
+const formSchema = z.object({
+    fullName: z.string().min(1, 'Nome completo é obrigatório.'),
+    username: z.string().min(1, 'Nome de usuário é obrigatório.'),
+    email: z.string().email('E-mail inválido.'),
+    phone: z.string().regex(/^[+]*[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/, 'Telefone inválido.'),
+    birthDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Data de nascimento inválida.'),
+    cpf: z.string().length(11, 'CPF deve ter 11 caracteres.'),
+    password: z.string().min(6, 'Senha deve ter pelo menos 6 caracteres.'),
+});
+
+type FormData = z.infer<typeof formSchema>;
 
 export function InicioDashboard() {
-    const [formData, setFormData] = useState({
-        fullName: 'Nome Completo',
-        username: 'Nome de Usuário',
-        email: 'E-mail',
-        phone: '+55 (xx) xxxxx-xxxx',
-        birthDate: 'Data de Nascimento',
-        cpf: 'CPF',
-        password: '',
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<FormData>({
+        resolver: zodResolver(formSchema),
     });
 
     const [isEditing, setIsEditing] = useState(false);
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value,
-        }));
-    };
-
-    const handleSave = () => {
-        const fileData = JSON.stringify(formData, null, 2);
+    const onSubmit: SubmitHandler<FormData> = (data) => {
+        const fileData = JSON.stringify(data, null, 2);
         const blob = new Blob([fileData], { type: 'application/json' });
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
@@ -35,92 +40,90 @@ export function InicioDashboard() {
     };
 
     return (
-        <div className="w-full max-w-4xl p-9 bg-[#ffffff] rounded-lg" style={{ fontFamily: 'Times New Roman, serif', boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.6)', borderTop: 'none', borderLeft: 'none' }}>
-            <h1 className="text-2xl font-bold text-gray-800 mb-4">Dados Pessoais</h1>
+        <div className="w-full max-w-4xl p-8 bg-[#ffffff] rounded-lg" style={{ fontFamily: 'Times New Roman, serif', boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.1)', borderTop: 'none', borderLeft: 'none' }}>
+            <h1 className="text-2xl font-bold text-gray-800 mb-6">Dados Pessoais</h1>
 
-            <form>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
                     <div>
-                        <label className="block text-gray-700 mb-3"></label>
+                        <label className="block text-gray-700 mb-1"></label>
                         <input
                             type="text"
-                            name="fullName"
-                            value={formData.fullName}
-                            onChange={handleChange}
+                            value='Nome Completo'
+                            {...register('fullName')}
                             disabled={!isEditing}
-                            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#d9dbc8] text-[#6c6d64]"
+                            className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#d9dbc8] text-[#6c6d64] ${errors.fullName ? 'border-red-500' : ''}`}
                         />
+                        {errors.fullName?.message && <p className="text-red-500 text-sm">{errors.fullName.message}</p>}
                     </div>
                     <div>
-                        <label className="block text-gray-700 mb-3"></label>
+                        <label className="block text-gray-700 mb-1"></label>
                         <input
                             type="text"
-                            name="username"
-                            value={formData.username}
-                            onChange={handleChange}
+                            value='Nome de Usuário'
+                            {...register('username')}
                             disabled={!isEditing}
-                            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#d9dbc8] text-[#6c6d64]"
+                            className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#d9dbc8] text-[#6c6d64] ${errors.username ? 'border-red-500' : ''}`}
                         />
+                        {errors.username?.message && <p className="text-red-500 text-sm">{errors.username.message}</p>}
                     </div>
                     <div>
-                        <label className="block text-gray-700 mb-3"></label>
+                        <label className="block text-gray-700 mb-1"></label>
                         <input
                             type="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
+                            value='E-mail'
+                            {...register('email')}
                             disabled={!isEditing}
-                            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#d9dbc8] text-[#6c6d64]"
+                            className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#d9dbc8] text-[#6c6d64] ${errors.email ? 'border-red-500' : ''}`}
                         />
+                        {errors.email?.message && <p className="text-red-500 text-sm">{errors.email.message}</p>}
                     </div>
                     <div>
-                        <label className="block text-gray-700 mb-3"></label>
+                        <label className="block text-gray-700 mb-1"></label>
                         <input
                             type="text"
-                            name="phone"
-                            value={formData.phone}
-                            onChange={handleChange}
+                            value='+xx(xx)xxxxx-xxxx'
+                            {...register('phone')}
                             disabled={!isEditing}
-                            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#d9dbc8] text-[#6c6d64]"
+                            className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#d9dbc8] text-[#6c6d64] ${errors.phone ? 'border-red-500' : ''}`}
                         />
+                        {errors.phone?.message && <p className="text-red-500 text-sm">{errors.phone.message}</p>}
                     </div>
                     <div>
-                        <label className="block text-gray-700 mb-3"></label>
+                        <label className="block text-gray-700 mb-1"></label>
                         <input
                             type="date"
-                            name="birthDate"
-                            value={formData.birthDate}
-                            onChange={handleChange}
+                            {...register('birthDate')}
                             disabled={!isEditing}
-                            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#d9dbc8] text-[#6c6d64]"
+                            className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#d9dbc8] text-[#6c6d64] ${errors.birthDate ? 'border-red-500' : ''}`}
                         />
+                        {errors.birthDate?.message && <p className="text-red-500 text-sm">{errors.birthDate.message}</p>}
                     </div>
                     <div>
-                        <label className="block text-gray-700 mb-3"></label>
+                        <label className="block text-gray-700 mb-1"></label>
                         <input
                             type="text"
-                            name="cpf"
-                            value={formData.cpf}
-                            onChange={handleChange}
+                            value='CPF'
+                            {...register('cpf')}
                             disabled={!isEditing}
-                            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#d9dbc8] text-[#6c6d64]"
+                            className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#d9dbc8] text-[#6c6d64] ${errors.cpf ? 'border-red-500' : ''}`}
                         />
+                        {errors.cpf?.message && <p className="text-red-500 text-sm">{errors.cpf.message}</p>}
                     </div>
                 </div>
 
-                <hr className="border-gray-300 my-4" />
+                <hr className="border-gray-300 my-6" />
 
-                <div className="mb-8">
-                    <h1 className="text-2xl font-bold text-gray-800 mb-4">Minha senha</h1>
+                <div className="mb-9">
+                    <h1 className="text-2xl font-bold text-gray-800 mb-6">Minha Senha</h1>
                     <div className="relative">
                         <input
                             id="hs-toggle-password"
                             type="password"
-                            name="password"
-                            value={formData.password}
-                            onChange={handleChange}
+                            {...register('password')}
                             disabled={!isEditing}
-                            className="py-2 px-3 block w-full border rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none bg-[#d9dbc8]"
+                            className={`py-2 px-3 block w-full border rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 bg-[#d9dbc8] ${errors.password ? 'border-red-500' : ''}`}
+                            placeholder="Digite sua senha"
                         />
                         <button
                             type="button"
@@ -143,36 +146,45 @@ export function InicioDashboard() {
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
                             >
-                                <path className="hs-password-active:hidden" d="M9.88 9.88a3 3 0 1 0 4.24 4.24" />
-                                <path className="hs-password-active:hidden" d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68" />
-                                <path className="hs-password-active:hidden" d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61" />
-                                <line className="hs-password-active:hidden" x1="2" x2="22" y1="2" y2="22" />
-                                <path className="hidden hs-password-active:block" d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
-                                <circle className="hidden hs-password-active:block" cx="12" cy="12" r="3" />
+                                <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24" />
+                                <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68" />
+                                <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74" />
+                                <line x1="1" y1="1" x2="23" y2="23" />
                             </svg>
                         </button>
                     </div>
+                    {errors.password?.message && <p className="text-red-500 text-sm">{errors.password.message}</p>}
                 </div>
 
                 <div className="flex justify-end space-x-4">
-                    <button
-                        type="button"
-                        onClick={() => setIsEditing(!isEditing)}
-                        className="px-6 py-2 bg-[#e5d2b8] text-gray-800 rounded-lg hover:bg-[#d4bfa3] focus:outline-none"
-                    >
-                        {isEditing ? 'Cancelar' : 'Editar'}
-                    </button>
-                    <button
-                        type="button"
-                        onClick={handleSave}
-                        disabled={!isEditing}
-                        className="px-6 py-2 bg-[#e5d2b8] text-gray-800 rounded-lg hover:bg-[#d4bfa3] focus:outline-none"
+                    {!isEditing ? (
+                        <button
+                            type="button"
+                            onClick={() => setIsEditing(true)}
+                            className="px-6 py-2 text-black rounded-lg bg-[#e5d2b8] hover:bg-[#d1bda0]"
                         >
-                            Salvar
+                            Editar
                         </button>
-                    </div>
-                </form>
-            </div>
-        );
-    }
-    
+                    ) : (
+                        <>
+                            <button
+                                type="submit"
+                                className="px-6 py-2 text-black rounded-lg bg-[#e5d2b8] hover:bg-[#d1bda0]"
+                            >
+                                Salvar
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => setIsEditing(false)}
+                                className="px-6 py-2 text-white rounded-lg bg-gray-400 hover:bg-gray-500"
+                            >
+                                Cancelar
+                            </button>
+                        </>
+                    )}
+                </div>
+            </form>
+        </div>
+    );
+}
+
