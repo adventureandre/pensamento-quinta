@@ -35,8 +35,8 @@ export function InicioDashboard() {
     };
 
     return (
-        <div className="w-full max-w-4xl p-12 bg-[#ffffff] rounded-lg" style={{ fontFamily: 'Times New Roman, serif', boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.1)', borderTop: 'none', borderLeft: 'none' }}>
-            <h1 className="text-2xl font-bold text-gray-800 mb-6">Dados Pessoais</h1>
+        <div className="w-full max-w-4xl p-9 bg-[#ffffff] rounded-lg" style={{ fontFamily: 'Times New Roman, serif', boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.6)', borderTop: 'none', borderLeft: 'none' }}>
+            <h1 className="text-2xl font-bold text-gray-800 mb-4">Dados Pessoais</h1>
 
             <form>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
@@ -111,7 +111,7 @@ export function InicioDashboard() {
                 <hr className="border-gray-300 my-4" />
 
                 <div className="mb-8">
-                    <label className="text-2xl font-bold text-gray-800 mb-8">Minha senha</label>
+                    <h1 className="text-2xl font-bold text-gray-800 mb-4">Minha senha</h1>
                     <div className="relative">
                         <input
                             id="hs-toggle-password"
