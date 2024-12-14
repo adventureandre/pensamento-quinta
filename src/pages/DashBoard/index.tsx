@@ -5,6 +5,7 @@ import { FavoritosDashboard } from "./Favoritos";
 import { EnderecoDashboard } from "./Endereco";
 import { InicioDashboard } from "./Inicio";
 import { CarteiraDashboard } from "./Carteira";
+import { DadosPessoaisDashboard } from "./DadosPessoais";
 
 export function DashboardPage() {
     const { section } = useParams()
@@ -28,6 +29,10 @@ export function DashboardPage() {
             case "endereco":
             ComponentPage = EnderecoDashboard
             break
+
+            case "dadospessoais":
+                ComponentPage = DadosPessoaisDashboard
+                break
 
             case "carteira":
                 ComponentPage = CarteiraDashboard

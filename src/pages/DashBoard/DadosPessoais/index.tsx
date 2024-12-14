@@ -17,7 +17,7 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-export function InicioDashboard() {
+export function DadosPessoaisDashboard() {
     const methods = useForm<FormData>({
         resolver: zodResolver(formSchema)
     });
