@@ -17,7 +17,7 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-export function InicioDashboard() {
+export function DadosPessoaisDashboard() {
     const methods = useForm<FormData>({
         resolver: zodResolver(formSchema)
     });
@@ -40,7 +40,7 @@ export function InicioDashboard() {
 
     return (
         <div className="w-full max-w-4xl p-8 bg-white rounded-lg" style={{ fontFamily: 'Times New Roman, serif', boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.1)', borderTop: 'none', borderLeft: 'none' }}>
-            <h1 className="text-2xl font-bold text-gray-800 mb-6">Tela de Inicio</h1>
+            <h1 className="text-2xl font-bold text-gray-800 mb-6">Dados Pessoais</h1>
             <FormProvider {...methods}>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">

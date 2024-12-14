@@ -13,7 +13,7 @@ export function MenuDashBoard() {
                 <span>Olá, Anna Cruz!</span>
             </div>
             <ul className="w-full h-[70%]">
-                <li className="px-4 mb-2"><Link to="/dashboard/inicio">Dados Pessoais</Link></li>
+                <li className="px-4 mb-2"><Link to="/dashboard/dadospessoais">Dados Pessoais</Link></li>
                 <li className="px-4 mb-2"><Link to="/dashboard/endereco">Endereços</Link></li>
                 <li className="px-4 mb-2"><Link to="/dashboard/pedidos">Pedidos</Link></li>
                 <li className="px-4 mb-2"><Link to="/dashboard/carteira">Carteira</Link></li>
