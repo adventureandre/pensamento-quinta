@@ -1,9 +1,9 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { InputForm } from '@/components/InputForm';
 import { Eye, EyeSlash } from 'phosphor-react';
+import { InputForm } from '@/components/InputForm';
 
 const formSchema = z.object({
     fullName: z.string().min(1, 'Nome completo é obrigatório.'),
@@ -25,7 +25,6 @@ export function InicioDashboard() {
     const { handleSubmit } = methods;
     const [isEditing, setIsEditing] = useState(false);
     const [passwordVisible, setPasswordVisible] = useState(false);
-    const passwordInputRef = useRef<HTMLInputElement>(null);
 
     const onSubmit = (data: FormData) => {
         console.log(data);
@@ -33,14 +32,11 @@ export function InicioDashboard() {
 
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
-        if (passwordInputRef.current) {
-            passwordInputRef.current.type = passwordVisible ? 'text' : 'password';
-        }
     };
 
     return (
         <div className="w-full max-w-4xl p-8 bg-white rounded-lg" style={{ fontFamily: 'Times New Roman, serif', boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.1)', borderTop: 'none', borderLeft: 'none' }}>
-            <h1 className="text-2xl font-bold text-gray-800 mb-6">Tela de Inicio</h1>
+            <h1 className="text-2xl font-bold text-gray-800 mb-6">Dados Pessoais</h1>
             <FormProvider {...methods}>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
@@ -115,7 +111,6 @@ export function InicioDashboard() {
                         <div className="relative">
                             <InputForm
                                 name='password'
-                                ref={passwordInputRef}
                                 type={passwordVisible ? 'text' : 'password'}
                                 disabled={!isEditing}
                                 className="py-2 px-3 block w-full border rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 bg-[#d9dbc8]"
@@ -127,7 +122,7 @@ export function InicioDashboard() {
                                 className="absolute inset-y-0 end-0 flex items-center z-20 px-3 cursor-pointer text-gray-400 rounded-e-md focus:outline-none focus:text-blue-600"
                                 onClick={togglePasswordVisibility}
                             >
-                                {passwordVisible ? <Eye size={32} /> : <EyeSlash size={32} />}
+                                {passwordVisible ? <Eye size={22} /> : <EyeSlash size={22} />}
                             </button>
                         </div>
                     </div>
@@ -164,3 +159,4 @@ export function InicioDashboard() {
         </div>
     );
 }
+
