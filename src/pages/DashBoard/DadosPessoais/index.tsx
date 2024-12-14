@@ -34,7 +34,7 @@ export function DadosPessoaisDashboard() {
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
         if (passwordInputRef.current) {
-            passwordInputRef.current.type = passwordVisible ? 'password' : 'text';
+            passwordInputRef.current.type = passwordVisible ? 'text' : 'password';
         }
     };
 
@@ -127,7 +127,7 @@ export function DadosPessoaisDashboard() {
                                 className="absolute inset-y-0 end-0 flex items-center z-20 px-3 cursor-pointer text-gray-400 rounded-e-md focus:outline-none focus:text-blue-600"
                                 onClick={togglePasswordVisibility}
                             >
-                                {passwordVisible ? <Eye size={22} /> : <EyeSlash size={22} />}
+                                {passwordVisible ? <Eye size={32} /> : <EyeSlash size={32} />}
                             </button>
                         </div>
                     </div>
