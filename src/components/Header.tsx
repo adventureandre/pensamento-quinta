@@ -26,15 +26,15 @@ export const Header = () => {
                         </ul>
                     </nav>
 
-                    <form action="">
-                        <label htmlFor="search" className='flex rounded-full border border-spacing-2 bg-input bg-opacity-70 px-3 pt-1'>
+                    <form className='hidden md:flex' action="">
+                        <label htmlFor="search" className='flex  rounded-full border border-spacing-2 bg-input bg-opacity-70 px-3 pt-1'>
                             <input className='bg-inherit outline-none text-sm text-slate-800' id='search' type="search" placeholder='Digite o que você procura' />
                             <MagnifyingGlass size={20} />
                         </label>
                     </form>
 
-                    <div className="flex flex-row items-center gap-1">
-                        <div className='flex gap-2 w-[180px]'>
+                    <div className="flex flex-row items-center gap-5 md:gap-1">
+                        <div className='flex gap-2 md:w-[180px]'>
                             <Link to="/login">
                             <UserCircle size={52} weight="fill" />
                             </Link>
