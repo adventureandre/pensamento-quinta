@@ -10,21 +10,21 @@ export function FavoritosDashboard() {
 
     const livros = [
         {
-            src: "../../public/assets/images/livro2.png",
+            src: "./public/assets/images/livro2.png",
             alt: "The Great Gatsby",
             titulo: "The Great Gatsby",
             autor: "F. Scott",
             preço: "37,90"
         },
         {
-            src: "../../public/assets/images/livro2.png",
+            src: "./public/assets/images/livro2.png",
             alt: "The Great Gatsby",
             titulo: "The Great Gatsby",
             autor: "F. Scott",
             preço: "37,90"
         },
         {
-            src: "../../public/assets/images/livro2.png",
+            src: "./public/assets/images/livro2.png",
             alt: "The Great Gatsby",
             titulo: "The Great Gatsby",
             autor: "F. Scott",
