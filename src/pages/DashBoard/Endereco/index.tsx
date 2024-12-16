@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
+
 import { InputForm } from '@/components/InputForm';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 const formSchema = z.object({
     endereco: z.string().min(1, 'Endereço é obrigatório.'),
