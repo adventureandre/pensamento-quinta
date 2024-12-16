@@ -21,7 +21,6 @@ export function EnderecoDashboard() {
 
     const { handleSubmit } = methods;
     const [isEditing, setIsEditing] = useState(false);
-    const [passwordVisible, setPasswordVisible] = useState(false);
 
     const onSubmit = (data: FormData) => {
         console.log(data);

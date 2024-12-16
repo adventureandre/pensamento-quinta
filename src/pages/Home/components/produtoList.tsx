@@ -1,4 +1,4 @@
-import { Livro } from "@/types/livros";
+import { Livro } from "@/types/livro";
 import { Star } from "phosphor-react";
 
 interface ProdutoListHomeProps {

@@ -45,7 +45,7 @@ export function DashboardPage() {
             <MenuDashBoard />
 
             <div
-                className="flex justify-center items-center flex-wrap w-[800px] h-[529px] mb-14 rounded-xl pb-3 border-b-2 border-r-2"
+                className="flex justify-center  flex-wrap w-[800px] h-[529px] mb-14 rounded-xl pb-3 border-b-2 border-r-2"
                 style={{
                     boxShadow: '4px 4px 10px rgba(0, 0, 0, 0.1)',
                 }} >
