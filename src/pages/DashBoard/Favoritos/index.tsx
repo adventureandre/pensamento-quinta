@@ -1,6 +1,9 @@
 import { Heart } from "phosphor-react"
 
 export function FavoritosDashboard() {
+    const BASE_URL = import.meta.env.VITE_BASE_URL
+
+
     //    interface ILivros {
     //        src: string;
     //       alt: string;
@@ -10,21 +13,21 @@ export function FavoritosDashboard() {
 
     const livros = [
         {
-            src: "./assets/images/livro2.png",
+            src: `${BASE_URL}/assets/images/livro2.png`,
             alt: "The Great Gatsby",
             titulo: "The Great Gatsby",
             autor: "F. Scott",
             preço: "37,90"
         },
         {
-            src: "./assets/images/livro2.png",
+            src: `${BASE_URL}/assets/images/livro2.png`,
             alt: "The Great Gatsby",
             titulo: "The Great Gatsby",
             autor: "F. Scott",
             preço: "37,90"
         },
         {
-            src: "./assets/images/livro2.png",
+            src: `${BASE_URL}/assets/images/livro2.png`,
             alt: "The Great Gatsby",
             titulo: "The Great Gatsby",
             autor: "F. Scott",
