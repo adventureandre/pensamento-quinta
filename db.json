@@ -4,19 +4,103 @@
       "id": 1,
       "imgSrc": "./assets/images/livro.png",
       "price": "37,90",
-      "title": "O que Guardei na Gaveta"
+      "title": "O que Guardei na Gaveta",
+      "authorId": 1
     },
     {
       "id": 2,
       "imgSrc": "./assets/images/livro.png",
       "price": "37,90",
-      "title": "To Kill a Mockingbird"
+      "title": "To Kill a Mockingbird",
+      "authorId": 2
     },
     {
       "id": 3,
       "imgSrc": "./assets/images/livro.png",
       "price": "37,90",
-      "title": "1984"
+      "title": "1984",
+      "authorId": 3
+    },
+    {
+      "id": 4,
+      "imgSrc": "./assets/images/livro.png",
+      "price": "45,00",
+      "title": "The Great Gatsby",
+      "authorId": 4
+    }
+  ],
+  "autores": [
+    {
+      "id": 1,
+      "name": "Autor 1",
+      "bio": "Biografia do Autor 1"
+    },
+    {
+      "id": 2,
+      "name": "Harper Lee",
+      "bio": "Harper Lee foi uma escritora americana, famosa por seu livro 'To Kill a Mockingbird'."
+    },
+    {
+      "id": 3,
+      "name": "George Orwell",
+      "bio": "George Orwell foi um escritor britânico, famoso por '1984' e 'Animal Farm'."
+    },
+    {
+      "id": 4,
+      "name": "F. Scott Fitzgerald",
+      "bio": "F. Scott Fitzgerald foi um escritor americano, mais conhecido por 'The Great Gatsby'."
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "André Luiz",
+      "email": "andre@example.com",
+      "favoriteBooks": [
+        1,
+        2,
+        4
+      ],
+      "orders": [
+        101
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Maria Silva",
+      "email": "maria@example.com",
+      "favoriteBooks": [
+        2,
+        3,
+        4
+      ],
+      "orders": [
+        102
+      ]
+    }
+  ],
+  "orders":[
+    {
+      "id": 101,
+      "userId": 1,
+      "books": [
+        1,
+        3,
+        4
+      ],
+      "totalPrice": "120,70",
+      "status": "Acompanhar"
+    },
+    {
+      "id": 102,
+      "userId": 2,
+      "books": [
+        2,
+        4
+      ],
+      "totalPrice": "83,90",
+      "status": "Acompanhar"
     }
   ]
+  
 }

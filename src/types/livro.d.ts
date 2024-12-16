@@ -3,4 +3,5 @@ export interface Livro {
     imgSrc: string;
     price: string;
     title: string;
+    authorId:number
   }
