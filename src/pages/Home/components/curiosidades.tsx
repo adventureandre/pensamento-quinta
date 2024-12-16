@@ -9,7 +9,7 @@ export function CuriosidadeHome() {
                         </h1>
                     </div>
 
-                    <article className="flex gap-4 mt-6">
+                    <article className="flex flex-col md:flex-row gap-4 mt-6 md:items-center">
                         <img className="w-[360px] h-[477px]" src="./assets/images/curiosidade.png" alt="Imagem ilustrativa de curiosidade" />
                         <header className=" w-full">
                             <h2 className="text-2xl mb-3 font-playfair font-light ">O Papel do Editor Vai Além da Revisão</h2>

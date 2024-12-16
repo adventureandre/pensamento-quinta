@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 export function FooterHome() {
     return (
-        <footer className="bg-fundoBanner flex flex-col items-center mt-5 text-white">
-            <div className="flex justify-around mt-5 mb-5 w-full">
-                <div className="flex flex-col" >
-                    <Link className='flex flex-col gap-3 w-[500px]  items-center' to="/">
+        <footer className="bg-fundoBanner flex flex-col items-center mt-5 text-white p-4">
+            <div className="flex flex-col sm:flex-row justify-around mt-5 mb-5 w-full items-center">
+                <div className="flex flex-col items-center sm:items-start mb-4 sm:mb-0">
+                    <Link className='flex flex-col gap-3 items-center sm:items-start' to="/">
                         <img src="assets/images/logo.jpeg" alt="Pensamentos de quinta" className="w-[100px] min-w-20" />
                         <h1 className='font-playfair text-white font-bold text-sm hidden md:block'>Nossa Loja Virtual.</h1>
                     </Link>
@@ -17,18 +17,18 @@ export function FooterHome() {
                         <TwitterLogo size={32} />
                     </div>
                 </div>
-                <div>
-                    <h3>Atendimento</h3>
+                <div className="text-center sm:text-left mb-4 sm:mb-0">
+                    <h3 className="font-bold">Atendimento</h3>
                     <p>+xx (xx) XXXXX-XXXX</p>
                     <p>editorapensamentosdequinta@gmail.com</p>
                     <p>Av. XXXXX XXXX, SP - 890, 00000-000 </p>
                 </div>
-                <div>
-                    <h3>Formas de PAgamento</h3>
-                    <img src="./assets/images/pagamentos.png" alt="" />
+                <div className="text-center sm:text-left">
+                    <h3 className="font-bold">Formas de Pagamento</h3>
+                    <img src="./assets/images/pagamentos.png" alt="Formas de Pagamento" className="mx-auto sm:mx-0"/>
                 </div>
             </div>
-            <div>
+            <div className="text-center">
                 <p>© 2024 Editora Pensamentos de Quinta. Todos os direitos reservados. - XXXX XXXXXXXX - CNPJ XXXXXXXXXXXX</p>
             </div>
         </footer>
