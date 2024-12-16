@@ -1,9 +1,9 @@
 import { FacebookLogo, WhatsappLogo, InstagramLogo, TwitterLogo } from "phosphor-react";
 import { Link } from "react-router-dom";
 
-export function FooterHome() {
+export function Footer() {
     return (
-        <footer className="bg-fundoBanner flex flex-col items-center mt-5 text-white p-4">
+        <footer className="bg-fundoBanner w-full flex flex-col items-center mt-5 text-white p-4">
             <div className="flex flex-col sm:flex-row justify-around mt-5 mb-5 w-full items-center">
                 <div className="flex flex-col items-center sm:items-start mb-4 sm:mb-0">
                     <Link className='flex flex-col gap-3 items-center sm:items-start' to="/">

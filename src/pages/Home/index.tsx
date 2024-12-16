@@ -4,7 +4,6 @@ import { livrosStore } from "@/store/livrosStore";
 
 import { ProdutoListHome } from "./components/produtoList";
 import { HeaderHome } from "./components/header";
-import { FooterHome } from "./components/footer";
 import { CuriosidadeHome } from "./components/curiosidades";
 import { ComentariosAvaliacoes } from "./components/comentariosAvaliacoes";
 
@@ -25,9 +24,6 @@ export function HomePage() {
       <CuriosidadeHome />
 
       <ComentariosAvaliacoes title="Comentários e Avaliações" livros={livros} isLoading={isLoading} />
-
-      <FooterHome />
-
     </main>
   );
 }

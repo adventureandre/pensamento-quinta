@@ -1,14 +1,16 @@
+import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Outlet } from "react-router-dom";
 
 
 
-export function DefaultLayout(){
+export function DefaultLayout() {
     return (
         <>
-        <Header/>
-
-        <Outlet/>
+            <Header />
+            {/* //Paginação acontece aki */}
+            <Outlet />
+            <Footer />
         </>
     )
 }
