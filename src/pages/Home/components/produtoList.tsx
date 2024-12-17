@@ -19,7 +19,7 @@ export function ProdutoListHome({ livros, isLoading, title }: ProdutoListHomePro
                     livros?.map((livro) => (
                         <article
                             key={livro.id}
-                            className="flex justify-center items-center flex-wrap w-[256px] mb-14 rounded-xl pb-3 border-b-2 border-r-2"
+                            className="flex justify-center items-center flex-wrap w-[256px] mb-14 rounded-xl pb-3 border-b-2 border-r-2 transition-transform transform hover:scale-105 hover:shadow-lg"
                             style={{
                                 boxShadow: '4px 4px 10px rgba(0, 0, 0, 0.1)',
                             }}
