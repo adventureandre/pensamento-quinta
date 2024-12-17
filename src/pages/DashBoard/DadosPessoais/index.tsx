@@ -41,7 +41,7 @@ export function DadosPessoaisDashboard() {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
                         <div>
-                            <label className="block text-gray-700 mb-1">Nome Completo</label>
+                            <label className="block text-gray-700 mb-1"></label>
                             <InputForm
                                 name='fullName'
                                 disabled={!isEditing}
@@ -51,7 +51,7 @@ export function DadosPessoaisDashboard() {
                         </div>
 
                         <div>
-                            <label className="block text-gray-700 mb-1">Nome de Usuário</label>
+                            <label className="block text-gray-700 mb-1"></label>
                             <InputForm
                                 name='username'
                                 disabled={!isEditing}
@@ -61,7 +61,7 @@ export function DadosPessoaisDashboard() {
                         </div>
 
                         <div>
-                            <label className="block text-gray-700 mb-1">E-mail</label>
+                            <label className="block text-gray-700 mb-1"></label>
                             <InputForm
                                 type='email'
                                 name='email'
@@ -72,7 +72,7 @@ export function DadosPessoaisDashboard() {
                         </div>
 
                         <div>
-                            <label className="block text-gray-700 mb-1">Telefone</label>
+                            <label className="block text-gray-700 mb-1"></label>
                             <InputForm
                                 name='phone'
                                 type='text'
@@ -83,7 +83,7 @@ export function DadosPessoaisDashboard() {
                         </div>
 
                         <div>
-                            <label className="block text-gray-700 mb-1">Data de Nascimento</label>
+                            <label className="block text-gray-700 mb-1"></label>
                             <InputForm
                                 name='birthDate'
                                 type="date"
@@ -93,7 +93,7 @@ export function DadosPessoaisDashboard() {
                         </div>
 
                         <div>
-                            <label className="block text-gray-700 mb-1">CPF</label>
+                            <label className="block text-gray-700 mb-1"></label>
                             <InputForm
                                 name='cpf'
                                 type="text"
@@ -159,4 +159,3 @@ export function DadosPessoaisDashboard() {
         </div>
     );
 }
-

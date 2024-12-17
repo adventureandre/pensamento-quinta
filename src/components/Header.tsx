@@ -35,6 +35,7 @@ export const Header = () => {
 
                     <div className="flex flex-row items-center gap-5 md:gap-1">
                         <div className='flex gap-2 md:w-[180px]'>
+                            {/* Somente para visualizar */}
                             <Link to="/login">
                             <UserCircle size={52} weight="fill" />
                             </Link>
