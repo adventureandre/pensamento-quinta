@@ -47,6 +47,7 @@ export function EnderecoDashboard() {
                             <label className="block text-gray-700 mb-1">CEP</label>
                             <InputForm
                                 name='cep'
+                                 mask="99999-999"
                                 disabled={!isEditing}
                                 className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#d9dbc8] text-[#6c6d64]"
                                 placeholder='CEP'
