@@ -11,7 +11,8 @@ const formSchema = z.object({
     email: z.string().email('E-mail inválido.'),
     phone: z.string().regex(/^[+]*[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/, 'Telefone inválido.'),
     birthDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Data de nascimento inválida.'),
-    cpf: z.string().length(11, 'CPF deve ter 11 caracteres.'),
+    cpf: z.string()
+        .transform(value => value.replace(/\D/g, '')),  // Remove máscara
     password: z.string().min(6, 'Senha deve ter pelo menos 6 caracteres.'),
 });
 
@@ -76,9 +77,10 @@ export function DadosPessoaisDashboard() {
                             <InputForm
                                 name='phone'
                                 type='text'
+                                mask="(99) 99999-9999"
                                 disabled={!isEditing}
                                 className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#d9dbc8] text-[#6c6d64]"
-                                placeholder='+xx(xx)xxxxx-xxxx'
+                                placeholder='(xx)xxxxx-xxxx'
                             />
                         </div>
 
@@ -97,6 +99,7 @@ export function DadosPessoaisDashboard() {
                             <InputForm
                                 name='cpf'
                                 type="text"
+                                mask="999.999.999-99"
                                 placeholder='CPF'
                                 disabled={!isEditing}
                                 className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#d9dbc8] text-[#6c6d64]"
