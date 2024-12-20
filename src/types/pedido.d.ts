@@ -1,6 +1,7 @@
-export interface Pedido{
-    orderId: number;
-    books: number[];
-    totalPrice: string;
-    status: string;
+export interface Pedido {
+    id: number;
+    userId: number;
+    products: number[];
+    totalPrice: number;
+    status: number;
 }

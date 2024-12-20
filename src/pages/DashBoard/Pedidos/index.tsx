@@ -14,14 +14,13 @@ export function PedidosDashboard() {
     useEffect(() => {
         const fetchData = async () => {
             await loadPedidos(101);
-            await pedidos?.books.map((book)=>{
-               console.log(book.id)
-               findById(book.id)
-            })
+            const products =  pedidos?.products
+            products?.map((prod) => findById(prod))
         };
 
         fetchData();
     }, []);
+    
 
     useEffect(() => {
         if (livro) {
