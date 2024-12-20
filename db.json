@@ -79,14 +79,20 @@
       ]
     }
   ],
-  "orders":[
+  "orders": [
     {
       "id": 101,
       "userId": 1,
       "books": [
-        1,
-        3,
-        4
+        {
+          "id": 1
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 2
+        }
       ],
       "totalPrice": "120,70",
       "status": "Acompanhar"
@@ -94,13 +100,16 @@
     {
       "id": 102,
       "userId": 2,
-      "books": [
-        2,
-        4
+     "books": [
+        {
+          "id": 3
+        },
+        {
+          "id": 2
+        }
       ],
       "totalPrice": "83,90",
       "status": "Acompanhar"
     }
   ]
-  
 }

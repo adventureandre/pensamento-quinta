@@ -3,13 +3,15 @@ import { Livro } from "@/types/livro";
 import { create } from "zustand";
 
 type LivrosStoreType = {
+    livro: Livro | null,
     livros: Livro[] | null;
     isLoading: boolean;
     load: () => Promise<void>;
-    findById: (id: number) => Livro | undefined;
+    findById: (id: number) => Promise<void>;
 };
 
 export const livrosStore = create<LivrosStoreType>((set, get) => ({
+    livro: null,
     livros: null,
     isLoading: false,
 
@@ -26,8 +28,17 @@ export const livrosStore = create<LivrosStoreType>((set, get) => ({
         }
     },
 
-    findById: (id: number) => {
-        const { livros } = get();
-        return livros?.find((livro) => livro.id === id);
+    findById: async (id: number) => {
+        set({ isLoading: true });
+
+        try {
+            const response = await api(`/livros/${id.toString()}`);
+            const livro = await response.json();
+            set({ livro, isLoading: false })
+
+        } catch (err) {
+            console.log('Failed to fetch items', err);
+
+        }
     }
 }));
