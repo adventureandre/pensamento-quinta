@@ -13,21 +13,21 @@ export function FavoritosDashboard() {
 
     const livros = [
         {
-            src: `${BASE_URL}/assets/images/livro2.png`,
+            src: `/assets/images/livro2.png`,
             alt: "The Great Gatsby",
             titulo: "The Great Gatsby",
             autor: "F. Scott",
             preço: "37,90"
         },
         {
-            src: `${BASE_URL}/assets/images/livro2.png`,
+            src: `/assets/images/livro2.png`,
             alt: "The Great Gatsby",
             titulo: "The Great Gatsby",
             autor: "F. Scott",
             preço: "37,90"
         },
         {
-            src: `${BASE_URL}/assets/images/livro2.png`,
+            src: `/assets/images/livro2.png`,
             alt: "The Great Gatsby",
             titulo: "The Great Gatsby",
             autor: "F. Scott",
@@ -37,7 +37,7 @@ export function FavoritosDashboard() {
 
     return (
         <section>
-            <h1 className="text-3xl font-semibold font-playfair">Favoritos</h1>
+            <h1 className="text-3xl font-bold font-playfair italic">Lista de Desejos</h1>
             <div className="w-full h-[420px] flex flex-wrap p-3 gap-x-6 mt-5 rounded-3xl">
                 {
                     livros.map(livro => (
@@ -45,7 +45,7 @@ export function FavoritosDashboard() {
                             style={{
                                 boxShadow: '4px 10px 10px rgba(0, 0, 0, 0.49)',
                             }}>
-                            <Heart className="justify-self-end" />
+                            <Heart className="justify-self-end" weight="fill" />
                             <img src={livro.src} alt={livro.titulo} className="w-30 mb-5" />
                             <h2 className="font-semibold">{livro.titulo}</h2>
                             <p className="font-semibold">- {livro.autor}</p>

@@ -27,7 +27,7 @@ export function Footer() {
                 </div>
                 <div className="text-center sm:text-left">
                     <h3 className="font-bold">Formas de Pagamento</h3>
-                    <img src="./assets/images/pagamentos.png" alt="Formas de Pagamento" className="mx-auto sm:mx-0"/>
+                    <img src="/assets/images/pagamentos.png" alt="Formas de Pagamento" className="mx-auto sm:mx-0"/>
                 </div>
             </div>
             <div className="text-center">

@@ -37,7 +37,7 @@ export function DadosPessoaisDashboard() {
 
     return (
         <div className="w-full max-w-4xl p-8 bg-white rounded-lg" style={{ fontFamily: 'Times New Roman, serif', boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.1)', borderTop: 'none', borderLeft: 'none' }}>
-            <h1 className="text-2xl font-bold text-gray-800 mb-6">Dados Pessoais</h1>
+            <h1 className="text-3xl font-bold italic text-gray-800 mb-6">Dados Pessoais</h1>
             <FormProvider {...methods}>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
@@ -46,7 +46,6 @@ export function DadosPessoaisDashboard() {
                             <InputForm
                                 name='fullName'
                                 disabled={!isEditing}
-                                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#d9dbc8] text-[#6c6d64]"
                                 placeholder='Nome Completo'
                             />
                         </div>
@@ -56,7 +55,6 @@ export function DadosPessoaisDashboard() {
                             <InputForm
                                 name='username'
                                 disabled={!isEditing}
-                                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#d9dbc8] text-[#6c6d64]"
                                 placeholder='Nome de Usuário'
                             />
                         </div>
@@ -67,7 +65,6 @@ export function DadosPessoaisDashboard() {
                                 type='email'
                                 name='email'
                                 disabled={!isEditing}
-                                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#d9dbc8] text-[#6c6d64]"
                                 placeholder='E-mail'
                             />
                         </div>
@@ -79,7 +76,6 @@ export function DadosPessoaisDashboard() {
                                 type='text'
                                 mask="(99) 99999-9999"
                                 disabled={!isEditing}
-                                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#d9dbc8] text-[#6c6d64]"
                                 placeholder='(xx)xxxxx-xxxx'
                             />
                         </div>
@@ -90,7 +86,6 @@ export function DadosPessoaisDashboard() {
                                 name='birthDate'
                                 type="date"
                                 disabled={!isEditing}
-                                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#d9dbc8] text-[#6c6d64]"
                             />
                         </div>
 
@@ -102,7 +97,6 @@ export function DadosPessoaisDashboard() {
                                 mask="999.999.999-99"
                                 placeholder='CPF'
                                 disabled={!isEditing}
-                                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#d9dbc8] text-[#6c6d64]"
                             />
                         </div>
                     </div>
@@ -110,13 +104,12 @@ export function DadosPessoaisDashboard() {
                     <hr className="border-gray-300 my-6" />
 
                     <div className="mb-9">
-                        <h1 className="text-2xl font-bold text-gray-800 mb-6">Minha Senha</h1>
+                        <h1 className="text-2xl italic font-bold text-gray-800 mb-6">Minha Senha</h1>
                         <div className="relative">
                             <InputForm
                                 name='password'
                                 type={passwordVisible ? 'text' : 'password'}
-                                disabled={!isEditing}
-                                className="py-2 px-3 block w-full border rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 bg-[#d9dbc8]"
+                                disabled={!isEditing}                                
                                 placeholder="Digite sua senha"
                             />
 
@@ -135,7 +128,7 @@ export function DadosPessoaisDashboard() {
                             <button
                                 type="button"
                                 onClick={() => setIsEditing(true)}
-                                className="px-6 py-2 text-black rounded-lg bg-[#e5d2b8] hover:bg-[#d1bda0]"
+                                className="px-6 py-2 text-black rounded-lg bg-[#e5d2b8] hover:bg-[#deb88a]"
                             >
                                 Editar
                             </button>
@@ -143,14 +136,14 @@ export function DadosPessoaisDashboard() {
                             <>
                                 <button
                                     type="submit"
-                                    className="px-6 py-2 text-black rounded-lg bg-[#e5d2b8] hover:bg-[#d1bda0]"
+                                    className="px-6 py-2 text-black rounded-lg bg-[#e5d2b8] hover:bg-[#deb88a]"
                                 >
                                     Salvar
                                 </button>
                                 <button
                                     type="button"
                                     onClick={() => setIsEditing(false)}
-                                    className="px-6 py-2 text-white rounded-lg bg-gray-400 hover:bg-gray-500"
+                                    className="px-6 py-2 text-white rounded-lg bg-gray-400 hover:bg-[#deb88a]"
                                 >
                                     Cancelar
                                 </button>

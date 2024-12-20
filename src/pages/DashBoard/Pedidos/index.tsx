@@ -24,7 +24,7 @@ export function PedidosDashboard() {
 
     return (
         <section className='w-full pl-6 mt-6'>
-            <h1 className="text-3xl font-semibold font-playfair mb-6">Pedidos</h1>
+            <h1 className="text-3xl italic font-bold font-playfair mb-6">Pedidos</h1>
             {orderedBooks?.map((livro, index) => (
                 <article key={index} className='flex items-center gap-3 border-b pb-3 mb-3'>
                     <img src={livroPedidos} alt={`Livro ${livro?.title}`} />
@@ -41,13 +41,13 @@ export function PedidosDashboard() {
                 <div className='w-full flex justify-end gap-2'>
                     <button
                         type="button"
-                        className="px-6 py-2 text-black rounded-lg bg-[#e5d2b8] hover:bg-[#d1bda0]"
+                        className="px-6 py-2 text-black rounded-lg bg-[#e5d2b8] hover:bg-[#deb88a]"
                     >
                         Acompanhar
                     </button>
                     <button
                         type="button"
-                        className="px-6 py-2 text-black rounded-lg bg-[#e5d2b8] hover:bg-[#d1bda0]"
+                        className="px-6 py-2 text-black rounded-lg bg-[#e5d2b8] hover:bg-[#deb88a]"
                     >
                         Cancelar
                     </button>

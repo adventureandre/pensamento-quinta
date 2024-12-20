@@ -21,12 +21,12 @@ export function InputForm({ name, mask, disabled, ...props }: InputProps) {
             required: true
           })}
           {...props}
-        />
+        className="w-full py-2 px-3 block w-full border rounded-xl text-sm focus:outline-none focus:border-[#566150] focus:ring-blue-500 bg-[#d9dbc8]"/>
       ) : (
         <input
           {...register(name)}
           {...props}
-        />
+          className="w-full py-2 px-3 block w-full border rounded-xl text-sm focus:outline-none focus:border-[#566150] focus:ring-blue-500 bg-[#d9dbc8]"/>
       )}
       {errors[name] && (
         <p className="text-red-500 text-sm mt-1">

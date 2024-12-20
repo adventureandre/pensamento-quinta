@@ -29,7 +29,7 @@ export function EnderecoDashboard() {
 
     return (
         <div className="w-full max-w-4xl p-8 bg-white rounded-lg" style={{ fontFamily: 'Times New Roman, serif', boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.1)', borderTop: 'none', borderLeft: 'none' }}>
-            <h1 className="text-2xl font-bold text-gray-800 mb-6">Endereços</h1>
+            <h1 className="text-3xl italic font-bold text-gray-800 mb-6">Endereços</h1>
             <FormProvider {...methods}>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
@@ -38,7 +38,6 @@ export function EnderecoDashboard() {
                             <InputForm
                                 name='endereco'
                                 disabled={!isEditing}
-                                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#d9dbc8] text-[#6c6d64]"
                                 placeholder='Endereço'
                             />
                         </div>
@@ -47,9 +46,8 @@ export function EnderecoDashboard() {
                             <label className="block text-gray-700 mb-1">CEP</label>
                             <InputForm
                                 name='cep'
-                                 mask="99999-999"
+                                mask="99999-999"
                                 disabled={!isEditing}
-                                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#d9dbc8] text-[#6c6d64]"
                                 placeholder='CEP'
                             />
                         </div>
@@ -60,7 +58,6 @@ export function EnderecoDashboard() {
                                 type='complemento'
                                 name='email'
                                 disabled={!isEditing}
-                                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#d9dbc8] text-[#6c6d64]"
                                 placeholder='Complemento'
                             />
                         </div>
@@ -72,7 +69,6 @@ export function EnderecoDashboard() {
                                 name='pais'
                                 type="text"
                                 disabled={!isEditing}
-                                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#d9dbc8] text-[#6c6d64]"
                                 placeholder='País'
                             />
                         </div>
@@ -84,7 +80,6 @@ export function EnderecoDashboard() {
                                 type="text"
                                 placeholder='Cidade'
                                 disabled={!isEditing}
-                                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-[#d9dbc8] text-[#6c6d64]"
                             />
                         </div>
                     </div>
@@ -95,7 +90,7 @@ export function EnderecoDashboard() {
                             <button
                                 type="button"
                                 onClick={() => setIsEditing(true)}
-                                className="px-6 py-2 text-black rounded-lg bg-[#e5d2b8] hover:bg-[#d1bda0]"
+                                className="px-6 py-2 text-black rounded-lg bg-[#e5d2b8] hover:bg-[#deb88a]"
                             >
                                 Editar
                             </button>
@@ -103,14 +98,14 @@ export function EnderecoDashboard() {
                             <>
                                 <button
                                     type="submit"
-                                    className="px-6 py-2 text-black rounded-lg bg-[#e5d2b8] hover:bg-[#d1bda0]"
+                                    className="px-6 py-2 text-black rounded-lg bg-[#e5d2b8] hover:bg-[#deb88a]"
                                 >
                                     Salvar
                                 </button>
                                 <button
                                     type="button"
                                     onClick={() => setIsEditing(false)}
-                                    className="px-6 py-2 text-white rounded-lg bg-gray-400 hover:bg-gray-500"
+                                    className="px-6 py-2 text-white rounded-lg bg-gray-400 hover:bg-[#deb88a]"
                                 >
                                     Cancelar
                                 </button>

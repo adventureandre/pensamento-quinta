@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { ShoppingCart, List, UserCircle, MagnifyingGlass } from 'phosphor-react';
+import { List, UserCircle, MagnifyingGlass, Heart } from 'phosphor-react';
+import { GiShoppingCart } from "react-icons/gi";
 import { Link } from 'react-router-dom';
 import logo from '../../public/assets/images/logo.jpeg';
 
@@ -8,46 +9,54 @@ export const Header = () => {
 
     return (
         <>
-            <header className="pt-6 max-w-[1600px] w-full pb-6">
-                <div className='flex flex-row justify-between items-center px-5 gap-10 sm:gap-1'>
+            <header className="max-w-[1910px] w-full p-3">
+                <div className='w-full flex justify-around items-center sm:gap-1'>
                     {/* Banner */}
-                    <Link className='flex flex-row gap-3 w-[500px] items-center' to="/">
-                        <img src={logo} alt="Pensamentos de quinta" className="w-[100px] min-w-20" />
-                        <h1 className='font-playfair font-bold text-sm hidden md:block'>A Editora Que Vai Te Encantar!!</h1>
+                    <Link className='flex flex-row gap-3 w-[280px] items-center' to="/">
+                        <img src={logo} alt="Pensamentos de quinta" className="w-[160px] min-w-20" />
+                        <h1 className='font-playfair font-semibold text-xl hidden md:block'>A Editora Que Vai Te Encantar!!</h1>
                     </Link>
 
                     {/* Menu */}
-                    <nav className="hidden md:block w-full mt-3 py-1 text-sm font-bold">
+                    <nav className="hidden md:block py-1 text-sm font-bold">
                         <ul className="flex flex-row gap-12 justify-center">
-                            <li><Link className='hover:underline underline-offset-2' to="/quemsomos">Quem Somos</Link></li>
-                            <li><Link className='hover:underline underline-offset-2' to="/nossosservicos">Nossos Serviços</Link></li>
-                            <li><Link className='hover:underline underline-offset-2' to="/nossoslivros">Nossos Livros</Link></li>
-                            <li><Link className='hover:underline underline-offset-2' to="/nossosautores">Nossos Autores</Link></li>
+                            <li><Link className='transition duration-0 hover:duration-300 hover:border-[#000000] hover:border-b-2' to="/quemsomos">Papelaria Afetiva</Link></li>
+                            <li><Link className='transition duration-0 hover:duration-300 hover:border-[#000000] hover:border-b-2' to="/quemsomos">Quem Somos</Link></li>
+                            <li><Link className='transition duration-0 hover:duration-300 hover:border-[#000000] hover:border-b-2' to="/nossosservicos">Nossos Serviços</Link></li>
+                            <li><Link className='transition duration-0 hover:duration-300 hover:border-[#000000] hover:border-b-2' to="/nossoslivros">Nossos Livros</Link></li>
+                            <li><Link className='transition duration-0 hover:duration-300 hover:border-[#000000] hover:border-b-2' to="/nossosautores">Nossos Autores</Link></li>
                         </ul>
                     </nav>
 
                     <form className='hidden md:flex' action="">
-                        <label htmlFor="search" className='flex  rounded-full border border-spacing-2 bg-input bg-opacity-70 px-3 pt-1'>
-                            <input className='bg-inherit outline-none text-sm text-slate-800' id='search' type="search" placeholder='Digite o que você procura' />
+                        <label htmlFor="search" className='flex w-full justify-around items-center p-1 rounded-full border-solid border border-gray-500  bg-input bg-opacity-70 px-3 pt-1' style={{
+                            boxShadow: '1px 4px 5px rgba(0, 0, 0, 0.29)',
+                        }}>
+                            <input className='bg-transparent w-[200px] outline-none text-sm text-slate-800 cursor-pointer' id='search' type="search" placeholder='Digite o que você procura' />
                             <MagnifyingGlass size={20} />
                         </label>
                     </form>
 
                     <div className="flex flex-row items-center gap-5 md:gap-1">
-                        <div className='flex gap-2 md:w-[180px]'>
+                        <div className='flex justify-around items-center md:w-[288px]'>
                             {/* Somente para visualizar */}
-                            <Link to="/login">
-                            <UserCircle size={52} weight="fill" />
+                            <Link to="/dashboard/favoritos">
+                                <Heart size={25} weight='fill' className='transition duration-0 hover:duration-150 hover:fill-[#566150]' />
                             </Link>
-                            <div className='flex-col hidden lg:flex'>
+                            <Link to="/checkout" aria-disabled className="relative">
+                                <GiShoppingCart size={30} />
+                                {/*<span className="w-5 h-5 rounded-full bg-accent absolute right-[-8.345px] top-[-8px] flex justify-center items-center">2</span>*/}
+                            </Link>
+                            <Link to="/dashboard/dadospessoais">
+                                <UserCircle size={35} weight="fill" />
+                            </Link>
+                            {/*<div className='flex-col hidden lg:flex'>
                                 <span className='text-sm'>Bem-vindo(a)</span>
                                 <Link className='font-bold text-xs' to="/dashboard/inicio">Entrar ou Cadastrar</Link>
-                            </div>
+                            </div>*/}
+                            <p>Dashboard Adm</p>
                         </div>
-                        <Link to="/checkout" aria-disabled className="relative p-2 bg-secondary rounded-md [&[aria-disabled='true']]:pointer-events-none">
-                            <ShoppingCart size={22} weight="fill" />
-                            <span className="w-5 h-5 rounded-full bg-accent absolute right-[-8.345px] top-[-8px] flex justify-center items-center">2</span>
-                        </Link>
+
 
                         {/* menu mobile */}
                         <button
