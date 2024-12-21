@@ -6,6 +6,7 @@ import { Livro } from '@/types/livro';
 
 export function PedidosDashboard() {
     const BASE_URL = import.meta.env.VITE_BASE_URL
+    
     const { load: loadPedidos, pedidos } = pedidosStore();
     const { findById, livro } = livrosStore();
     const [livros, setLivros] = useState<Livro[] | []>([])
