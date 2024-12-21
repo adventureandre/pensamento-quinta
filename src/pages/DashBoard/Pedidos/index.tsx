@@ -54,13 +54,13 @@ export function PedidosDashboard() {
                 <div className='w-full flex justify-end gap-2'>
                     <button
                         type="button"
-                        className="px-6 py-2 text-black rounded-lg bg-[#e5d2b8] hover:bg-[#d1bda0]"
+                        className="px-6 py-2 text-black rounded-lg bg-[#e5d2b8] hover:bg-[#deb88a]"
                     >
                         Acompanhar
                     </button>
                     <button
                         type="button"
-                        className="px-6 py-2 text-black rounded-lg bg-[#e5d2b8] hover:bg-[#d1bda0]"
+                        className="px-6 py-2 text-black rounded-lg bg-[#e5d2b8] hover:bg-[#deb88a]"
                     >
                         Cancelar
                     </button>
