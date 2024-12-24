@@ -64,13 +64,13 @@ export function LoginCadastroPage() {
           className="w-[200px] sm:w-[300px]"
         />
       </div>
-      <div className="absolute top-0 left-0 flex items-center space-x-2 p-4">
+      <div className="'flex flex-row gap-3 w-[330px] absolute top-0 left-0 flex items-center p-4">
         <img
           src="/assets/images/logo.jpeg"
           alt="Logo da Editora"
           style={{ width: "91.29px", height: "87.23px" }}
         />
-        <span className="text-lg font-bold text-[#4b4b4b]">
+        <span className="font-playfair font-semibold text-xl hidden md:block">
           A EDITORA QUE VAI TE ENCANTAR
         </span>
       </div>
@@ -79,17 +79,24 @@ export function LoginCadastroPage() {
         className="w-full max-w-3xl p-8 bg-white rounded-lg shadow-xl shadow-gray-400"
         style={{
           width: "774.07px",
-          height: "630.24px",
+          height: "670.24px",
           borderRadius: "10px",
+          boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
         }}
       >
-        <div
-          className="text-center mb-6"
-          style={{ backgroundColor: "#57614f", color: "#ffffff" }}
-        >
-          <h1 className="text-2xl font-bold mb-2">
-            BEM-VINDO AO PENSAMENTOS DE QUINTA
-          </h1>
+        <div className="text-center mb-6" style={{ textAlign: "center" }}>
+          <div
+            style={{
+              backgroundColor: "#57614f",
+              color: "#ffffff",
+              display: "inline-block",
+              padding: "0 10px",
+            }}
+          >
+            <h1 className="text-2xl font-bold mb-2">
+              BEM-VINDO AO PENSAMENTOS DE QUINTA
+            </h1>
+          </div>
         </div>
         <div
           className="text-center mb-2"
@@ -99,6 +106,18 @@ export function LoginCadastroPage() {
             ONDE IDEIAS GANHAM VIDA E INSPIRAÇÕES FLORESCEM. CONECTE-SE, REFLITA
             E DESCUBRA NOVOS HORIZONTES A CADA VISITA!
           </h1>
+        </div>
+        <div className="text-center mb-4" style={{ textAlign: "center" }}>
+          <div
+            style={{
+              backgroundColor: "#d1bda0",
+              color: "black",
+              display: "inline-block",
+              padding: "0 10px",
+            }}
+          >
+            <h2 className="text-center font-bold">JUNTE-SE A NÓS!</h2>
+          </div>
         </div>
         <FormProvider {...methods}>
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -246,7 +265,7 @@ export function LoginCadastroPage() {
                   height: "23.9px",
                   fontSize: "12px",
                 }}
-                className="py-1 bg-[#d1bda0] text-black rounded-md hover:bg-[#bca88c]"
+                className="py-1 bg-[#d1bda0] font-bold text-black rounded-md hover:bg-[#bca88c]"
               >
                 CRIAR MINHA CONTA
               </button>
