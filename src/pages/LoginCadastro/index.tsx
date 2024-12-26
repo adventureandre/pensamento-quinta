@@ -275,7 +275,7 @@ export function LoginCadastroPage() {
         <div className="mt-4 text-center">
           <p className="text-black font-bold text-sm">
             Já possui conta? Acesse aqui&nbsp;
-            <a href="/login" className="text-black underline">
+            <a href="dashboard/inicio" className="text-black underline">
               Fazer Login
             </a>
           </p>

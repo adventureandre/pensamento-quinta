@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 import { InputForm } from '@/components/InputForm';
-import { zodResolver } from '@hookform/resolvers/zod';
 
 const formSchema = z.object({
     endereco: z.string().min(1, 'Endereço é obrigatório.'),
-    cep: z.string().min(1, 'CEP é obrigatório.'),
+    cep: z.string().regex(/^\d{5}-\d{3}$/, 'CEP inválido.'),
     complemento: z.string().optional(),
     pais: z.string().min(1, 'País é obrigatório.'),
     cidade: z.string().min(1, 'Cidade é obrigatória.'),
@@ -32,7 +32,7 @@ export function EnderecoDashboard() {
             <h1 className="text-3xl italic font-bold text-gray-800 mb-6">Endereços</h1>
             <FormProvider {...methods}>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                         <div>
                             <label className="block text-gray-700 mb-1">Endereço</label>
                             <InputForm
@@ -41,7 +41,6 @@ export function EnderecoDashboard() {
                                 placeholder='Endereço'
                             />
                         </div>
-
                         <div>
                             <label className="block text-gray-700 mb-1">CEP</label>
                             <InputForm
@@ -51,18 +50,14 @@ export function EnderecoDashboard() {
                                 placeholder='CEP'
                             />
                         </div>
-
                         <div>
                             <label className="block text-gray-700 mb-1">Complemento</label>
                             <InputForm
-                                type='complemento'
-                                name='email'
+                                name='complemento'
                                 disabled={!isEditing}
                                 placeholder='Complemento'
                             />
                         </div>
-
-
                         <div>
                             <label className="block text-gray-700 mb-1">País</label>
                             <InputForm
@@ -72,7 +67,6 @@ export function EnderecoDashboard() {
                                 placeholder='País'
                             />
                         </div>
-
                         <div>
                             <label className="block text-gray-700 mb-1">Cidade</label>
                             <InputForm
@@ -83,8 +77,6 @@ export function EnderecoDashboard() {
                             />
                         </div>
                     </div>
-
-
                     <div className="flex justify-end space-x-4">
                         {!isEditing ? (
                             <button
@@ -117,4 +109,3 @@ export function EnderecoDashboard() {
         </div>
     );
 }
-
