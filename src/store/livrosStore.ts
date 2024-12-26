@@ -11,10 +11,12 @@ type LivrosStoreType = {
 };
 
 export const livrosStore = create<LivrosStoreType>((set, get) => ({
+    //States
     livro: null,
     livros: null,
     isLoading: false,
 
+    // Functions
     load: async () => {
         set({ isLoading: true });
 
@@ -30,6 +32,16 @@ export const livrosStore = create<LivrosStoreType>((set, get) => ({
 
     findById: async (id: number) => {
         set({ isLoading: true });
+
+        const { livros } = get();
+
+        if (livros) {
+            const existingLivro = livros.find(livro => livro.id === id);
+            if (existingLivro) {
+                set({ livro: existingLivro, isLoading: false });
+                return;
+            }
+        }
 
         try {
             const response = await api(`/livros/${id.toString()}`);

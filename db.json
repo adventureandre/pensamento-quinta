@@ -32,18 +32,22 @@
   "autores": [
     {
       "id": 1,
+      "name": "Autor 1",
       "bio": "Biografia do Autor 1"
     },
     {
       "id": 2,
+      "name": "Harper Lee",
       "bio": "Harper Lee foi uma escritora americana, famosa por seu livro 'To Kill a Mockingbird'."
     },
     {
       "id": 3,
+      "name": "George Orwell",
       "bio": "George Orwell foi um escritor britânico, famoso por '1984' e 'Animal Farm'."
     },
     {
       "id": 4,
+      "name": "F. Scott Fitzgerald",
       "bio": "F. Scott Fitzgerald foi um escritor americano, mais conhecido por 'The Great Gatsby'."
     }
   ],
@@ -101,14 +105,21 @@
     {
       "id": 101,
       "userId": 1,
-      "products": [1, 3, 2],
+      "products": [
+        1,
+        3,
+        2
+      ],
       "totalPrice": 120.70,
       "status": 0
     },
     {
       "id": 102,
       "userId": 2,
-      "products": [3, 2],
+      "products": [
+        3,
+        2
+      ],
       "totalPrice": 83.90,
       "status": 0
     }
