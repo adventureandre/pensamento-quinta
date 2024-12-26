@@ -1,7 +1,7 @@
 export interface Livro {
   id: number;
   imgSrc: string;
-  price: string;
+  price: number;
   title: string;
   authorId: number;
 }

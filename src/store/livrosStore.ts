@@ -7,7 +7,7 @@ type LivrosStoreType = {
     livros: Livro[] | null;
     isLoading: boolean;
     load: () => Promise<void>;
-    findById: (id: number) => Promise<void>;
+    findById: (id: number) => Promise<Livro>;
 };
 
 export const livrosStore = create<LivrosStoreType>((set, get) => ({
@@ -38,15 +38,16 @@ export const livrosStore = create<LivrosStoreType>((set, get) => ({
         if (livros) {
             const existingLivro = livros.find(livro => livro.id === id);
             if (existingLivro) {
-                set({ livro: existingLivro, isLoading: false });
-                return;
+                set({ isLoading: false });
+                return existingLivro;
             }
         }
 
         try {
             const response = await api(`/livros/${id.toString()}`);
             const livro = await response.json();
-            set({ livro, isLoading: false })
+            set({ isLoading: false })
+            return livro;
 
         } catch (err) {
             console.log('Failed to fetch items', err);

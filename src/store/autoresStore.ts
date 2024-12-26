@@ -3,16 +3,14 @@ import { Autor } from "@/types/autor";
 import { create } from "zustand";
 
 type AutoresStoreType = {
-    autor: Autor | null
     autores: Autor[] | null
     isLoading: boolean
     load: () => Promise<void>
-    findById: (id: number) => Promise<void>;
+    findById: (id: number) => Promise<Autor>;
 }
 
 export const autoresStore = create<AutoresStoreType>((set, get) => ({
     // States
-    autor:null,
     autores: null,
     isLoading: false,
 
@@ -39,8 +37,8 @@ export const autoresStore = create<AutoresStoreType>((set, get) => ({
         if (autores) {
             const existingAutor = autores.find(autor => autor.id === id);
             if (existingAutor) {
-                set({ autor:existingAutor, isLoading: false });
-                return;
+                set({  isLoading: false });
+                return existingAutor;
             }
         }
 
@@ -48,9 +46,10 @@ export const autoresStore = create<AutoresStoreType>((set, get) => ({
             const response = await api(`/autores/${id.toString()}`);
             const autor = await response.json();
             set(() => ({
-                autor: autor,
                 isLoading: false
             }));
+
+            return autor
         } catch (err) {
             console.log('Failed to fetch items', err);
             set({ isLoading: false });

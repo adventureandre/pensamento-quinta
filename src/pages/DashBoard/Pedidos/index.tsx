@@ -3,77 +3,56 @@ import { pedidosStore } from '@/store/pedidosStore';
 import { livrosStore } from '@/store/livrosStore';
 import { autoresStore } from '@/store/autoresStore';
 import { Livro } from '@/types/livro';
-import { Autor } from '@/types/autor';
 
 export function PedidosDashboard() {
     const BASE_URL = import.meta.env.VITE_BASE_URL;
 
     const { load: loadPedidos, pedidos } = pedidosStore();
-    const { findById, livro, isLoading: isLoadingLivros } = livrosStore();
-    const { autor, findById: findAutorById, isLoading: isLoadingAutores } = autoresStore();
-   
-    //States local
+    const { findById: findLivroId, isLoading: isLoadingLivros } = livrosStore();
+    const { findById: findAutorById, isLoading: isLoadingAutores } = autoresStore();
+
     const [livros, setLivros] = useState<Livro[]>([]);
-    const [autoresList, setAutoresList] = useState<Autor[]>([]);
+    const [autores, setAutores] = useState<Map<number, string>>(new Map()); // Estado para armazenar autores
 
-    const fetchPedidos = async () => {
-        await loadPedidos(101);
-    };
-
-    const fetchLivros = async () => {
-        if (pedidos && pedidos.products) {
-            await pedidos.products.map((prod) => findById(prod));
-        }
-    };
-
+    // Função para carregar autores
     const fetchAutores = async () => {
-        if(livro){
-            if (!autoresList.some((autor) => autor.id === livro.authorId)) {
-              await  findAutorById(livro.authorId);
+        const autorMap = new Map();
+        for (const livro of livros) {
+            if (!autorMap.has(livro.authorId)) {
+                const autor = await findAutorById(livro.authorId);
+                autorMap.set(livro.authorId, autor.name);
             }
         }
-    }
+        setAutores(autorMap);
+    };
 
-    // Busca os pedidos
+    // Função para carregar os livros
+    const fetchLivros = async () => {
+        const livrosArray: Livro[] = [];
+        for (const item of pedidos?.products || []) {
+            const findLivros = await findLivroId(item);
+            if (!livrosArray.some(livro => livro.id === findLivros.id)) {
+                livrosArray.push(findLivros);
+            }
+        }
+        setLivros(livrosArray);
+    };
+
     useEffect(() => {
-        const fetchData = async () => {
-            await fetchPedidos();
-        };
-
-        fetchData();
+        loadPedidos(102);
     }, []);
 
-    // Recupera os livros dentro do pedido
     useEffect(() => {
-        if (pedidos?.products) {
+        if (pedidos?.products?.length) {
             fetchLivros();
         }
     }, [pedidos]);
 
-    // Atualiza a lista de livros e busca autores
     useEffect(() => {
-        if (livro) {
-            setLivros((prevLivros) => {
-                const livroExists = prevLivros.some((livroPrev) => livroPrev.id === livro.id);
-                if (livroExists) {
-                    return prevLivros;
-                }
-                return [...prevLivros, livro];
-            });
-
-            //Verifica se o autor já foi buscado
+        if (livros.length) {
             fetchAutores();
-
         }
-    }, [livro]);
-
-    // Atualiza a lista de autores
-    useEffect(() => {
-        if (autor && !autoresList.some((autorPrev) => autorPrev.id === autor.id)) {
-            setAutoresList((prevAutores) => [...prevAutores, autor]);
-        }
-    }, [autor,autoresList]);
-
+    }, [livros]);
 
     return (
         <section className='w-full pl-6 mt-6'>
@@ -82,28 +61,22 @@ export function PedidosDashboard() {
                 <p>Loading...</p>
             ) : (
                 livros.map((livroView) => {
-                    
+                    const autorName = autores.get(livroView.authorId);
                     return (
                         <article key={livroView.id} className='flex items-center gap-3 border-b pb-3 mb-3'>
                             <img className='w-[100px]' src={`${BASE_URL}/${livroView.imgSrc}`} alt={`Livro ${livroView.title}`} />
                             <div className='w-[70%]'>
                                 <h2 className='font-bold'>{livroView.title}</h2>
-                                <p>Autor: {autoresList.map((autor)=>{
-                                    if(autor.id === livroView.authorId){
-                                        console.log(autor.name);
-                                        return autor.name;
-                                    }
-                                })}</p>
-                             </div>
-                            <p>R$ {livroView.price}</p>
+                                <p>Autor: {autorName || 'Desconhecido'}</p>
+                            </div>
+                            <p>R$ {livroView.price.toFixed(2)}</p>
                         </article>
                     );
                 })
-                
             )}
 
             <div className="flex justify-end flex-wrap pr-6 gap-3">
-                <span>Total R$ {pedidos?.totalPrice}</span>
+                <span>Total R$ {pedidos?.totalPrice.toFixed(2)}</span>
                 <div className='w-full flex justify-end gap-2'>
                     <button
                         type="button"
