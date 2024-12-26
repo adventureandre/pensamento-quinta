@@ -15,6 +15,7 @@ export function DashboardPage() {
     switch (section) {
         case "inicio":
             ComponentPage = InicioDashboard
+            
 
             break;
         
@@ -37,6 +38,8 @@ export function DashboardPage() {
             case "carteira":
                 ComponentPage = CarteiraDashboard
                 break
+
+            
         default:
             ComponentPage = () => <div>Seção indisponivel!</div>
     }
