@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import { SetStateAction, useState } from 'react';
+import { useState } from 'react';
 import logo from '../../../../public/assets/images/logo.jpeg';
 
 export function MenuDashBoard() {
-    const [activeIndex, setActiveIndex] = useState(null);
+    const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-    const handleClick = (index: SetStateAction<null>) => {
+    const handleClick = (index: number) => {
         setActiveIndex(index);
     };
 
@@ -31,12 +31,12 @@ export function MenuDashBoard() {
     },
     {
         texto: "Sair",
-        rota: ""
+        rota: "/"
     }
     ]
 
     return (
-        <div className="w-[270px] h-[529px] border flex justify-around flex-wrap rounded-xl border-solid border border-[#566150]"
+        <div className="w-[270px] h-[529px] border flex justify-around flex-wrap rounded-xl border-solid  border-[#566150]"
             style={{
                 boxShadow: '4px 10px 10px rgba(0, 0, 0, 0.49)',
             }}

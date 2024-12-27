@@ -13,7 +13,7 @@ export const Header = () => {
                 <div className='w-full flex justify-around items-center sm:gap-1'>
                     {/* Banner */}
                     <Link className='flex flex-row gap-3 w-[280px] items-center' to="/">
-                        <img src={logo} alt="Pensamentos de quinta" className="w-[160px] min-w-20" />
+                        <img src={logo} alt="Pensamentos de quinta" className=" w-[80px] ms:w-[160px] min-w-20" />
                         <h1 className='font-playfair font-semibold text-xl hidden md:block'>A Editora Que Vai Te Encantar!!</h1>
                     </Link>
 
@@ -40,7 +40,7 @@ export const Header = () => {
                     <div className="flex flex-row items-center gap-5 md:gap-1">
                         <div className='flex justify-around items-center md:w-[288px]'>
                             {/* Somente para visualizar */}
-                            <Link to="/dashboard/favoritos">
+                            <Link className='hidden md:block' to="/dashboard/favoritos">
                                 <Heart size={25} weight='fill' className='transition duration-0 hover:duration-150 hover:fill-[#566150]' />
                             </Link>
                             <Link to="/checkout" aria-disabled className="relative">
@@ -50,11 +50,8 @@ export const Header = () => {
                             <Link to="/login">
                                 <UserCircle size={35} weight="fill" />
                             </Link>
-                            {/*<div className='flex-col hidden lg:flex'>
-                                <span className='text-sm'>Bem-vindo(a)</span>
-                                <Link className='font-bold text-xs' to="/dashboard/inicio">Entrar ou Cadastrar</Link>
-                            </div>*/}
-                            <p>Dashboard Adm</p>
+                           
+                            <p className='hidden md:block'>Dashboard Adm</p>
                         </div>
 
 
