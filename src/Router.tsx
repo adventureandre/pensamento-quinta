@@ -2,12 +2,13 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { DefaultLayout } from "./layouts/DefaultLayout";
 import { HomePage } from "./pages/Home";
 import { QuemSomosPage } from "./pages/QuemSomos";
-import { LoginCadastroPage } from "./pages/LoginCadastro";
+import { CadastroPage } from "./pages/LoginCadastro/cadastroPage";
 import { DashboardPage } from "./pages/DashBoard";
 import { NossosLivros } from "./pages/NossosLivros";
 import { NossosServicos } from "./pages/NossosServicos";
 import { NossosAutores } from "./pages/NossosAutores";
 import { AuthLayout } from "./layouts/AuthLayout";
+import { LoginPage } from "./pages/LoginCadastro/loginPage";
 
 export function Router() {
     return (
@@ -24,7 +25,8 @@ export function Router() {
                 </Route>
 
                 <Route path="/" element={<AuthLayout />}>
-                    <Route path="/login" element={<LoginCadastroPage />} />
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/cadastro" element={<CadastroPage />} />
                 </Route>
             </Routes>
         </BrowserRouter >

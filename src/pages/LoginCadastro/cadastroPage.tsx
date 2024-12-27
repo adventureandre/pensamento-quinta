@@ -4,6 +4,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye, EyeSlash } from "phosphor-react";
 import { InputForm } from "@/components/InputForm";
+import { useNavigate } from "react-router-dom";
 
 const formSchema = z
   .object({
@@ -27,7 +28,7 @@ const formSchema = z
 
 type FormData = z.infer<typeof formSchema>;
 
-export function LoginCadastroPage() {
+export function CadastroPage() {
   const methods = useForm<FormData>({
     resolver: zodResolver(formSchema),
   });
@@ -36,8 +37,13 @@ export function LoginCadastroPage() {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
 
+  const router = useNavigate();
+
   const onSubmit = (data: FormData) => {
     console.log(data);
+
+    //navegar para dashboard/inicio
+    router('/login')
   };
 
   const togglePasswordVisibility = () => {
@@ -248,7 +254,7 @@ export function LoginCadastroPage() {
         <div className="mt-4 text-center">
           <p className="text-black font-bold text-sm">
             Já possui conta? Acesse aqui&nbsp;
-            <a href="dashboard/inicio" className="text-black underline">
+            <a href="login" className="text-black underline">
               Fazer Login
             </a>
           </p>
