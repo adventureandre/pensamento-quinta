@@ -26,7 +26,7 @@ export function ProdutoListHome({ livros, isLoading, title }: ProdutoListHomePro
                         >
                             <img className="w-[300px]" src={livro.imgSrc} alt={`Imagem ${livro.title}`} />
                             <h2 className="text-sm text-gray-500 text-center mx-3 w-full max-w-[256px] overflow-hidden whitespace-nowrap text-ellipsis">{livro.title}</h2>
-                            <p className="text-lg mb-1 font-bold w-full text-center">{`R$ ${livro.price}`}</p>
+                            <p className="text-lg mb-1 font-bold w-full text-center">{`R$ ${livro.price.toFixed(2)}`}</p>
                             <span className="flex justify-center text-yellow-500 mb-2 w-full">
                                 <Star size={21} weight="fill" />
                                 <Star size={21} weight="fill" />
