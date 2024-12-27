@@ -2,9 +2,9 @@ import { Livro } from "@/types/livro";
 import { Star } from "phosphor-react";
 
 interface ProdutoListHomeProps {
-  title: string;
-  livros: Livro[] | null;
-  isLoading: boolean;
+    title: string;
+    livros: Livro[] | null;
+    isLoading: boolean;
 }
 
 export function ProdutoListHome({ livros, isLoading, title }: ProdutoListHomeProps) {
@@ -27,12 +27,14 @@ export function ProdutoListHome({ livros, isLoading, title }: ProdutoListHomePro
                             <img className="w-[300px]" src={livro.imgSrc} alt={`Imagem ${livro.title}`} />
                             <h2 className="text-sm text-gray-500 text-center mx-3 w-full max-w-[256px] overflow-hidden whitespace-nowrap text-ellipsis">{livro.title}</h2>
                             <p className="text-lg mb-1 font-bold w-full text-center">{`R$ ${livro.price}`}</p>
-                            <span className="flex text-yellow-500">
+                            <span className="flex justify-center text-yellow-500 mb-2 w-full">
                                 <Star size={21} weight="fill" />
                                 <Star size={21} weight="fill" />
                                 <Star size={21} weight="fill" />
                                 <Star size={21} weight="fill" />
                             </span>
+                            <button className="w-auto bg-[#E5D2B9]  text-sm font-bold py-1 px-6 rounded-lg hover:bg-blue-700 transition-colors">Saiba Mais!</button>
+
                         </article>
                     ))
                 )}

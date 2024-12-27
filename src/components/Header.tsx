@@ -47,7 +47,7 @@ export const Header = () => {
                                 <GiShoppingCart size={30} />
                                 {/*<span className="w-5 h-5 rounded-full bg-accent absolute right-[-8.345px] top-[-8px] flex justify-center items-center">2</span>*/}
                             </Link>
-                            <Link to="/dashboard/dadospessoais">
+                            <Link to="/login">
                                 <UserCircle size={35} weight="fill" />
                             </Link>
                             {/*<div className='flex-col hidden lg:flex'>
