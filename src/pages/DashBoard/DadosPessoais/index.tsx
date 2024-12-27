@@ -62,9 +62,12 @@ export function DadosPessoaisDashboard() {
                     <hr className="border-gray-300 my-6" />
                     <div className="mb-9">
                         <h1 className="text-2xl italic font-bold text-gray-800 mb-6">Minha Senha</h1>
-                        <div className="relative">
+                        <div className="flex flex-col relative">
                             <InputForm name='password' type={passwordVisible ? 'text' : 'password'} disabled={!isEditing} placeholder="Digite sua senha" />
-                            <button type="button" className="absolute inset-y-0 end-0 flex items-center z-20 px-3 cursor-pointer text-gray-400 rounded-e-md focus:outline-none focus:text-blue-600" onClick={togglePasswordVisibility}>
+                            <button 
+                            type="button" 
+                            className=" mr-2 flex h-full float-right absolute right-1 mt-2"
+                            onClick={togglePasswordVisibility}>
                                 {passwordVisible ? <Eye size={22} /> : <EyeSlash size={22} />}
                             </button>
                         </div>

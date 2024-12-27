@@ -20,13 +20,15 @@ export function InputForm({ name, mask, disabled, ...props }: InputProps) {
           {...registerWithMask(name, mask, {
             required: true
           })}
+          className="w-full py-2 px-3 block  border rounded-xl text-sm focus:outline-none focus:border-[#566150] focus:ring-blue-500 bg-[#d9dbc8]"
           {...props}
-        className="w-full py-2 px-3 block  border rounded-xl text-sm focus:outline-none focus:border-[#566150] focus:ring-blue-500 bg-[#d9dbc8]"/>
+          />
       ) : (
         <input
           {...register(name)}
+          className="w-full py-2 px-3 block  border rounded-xl text-sm focus:outline-none focus:border-[#566150] focus:ring-blue-500 bg-[#d9dbc8]"
           {...props}
-          className="w-full py-2 px-3 block  border rounded-xl text-sm focus:outline-none focus:border-[#566150] focus:ring-blue-500 bg-[#d9dbc8]"/>
+          />
       )}
       {errors[name] ? (
         <p className="text-red-500 text-sm mt-1">

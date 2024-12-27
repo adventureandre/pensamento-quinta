@@ -48,80 +48,55 @@ export function LoginCadastroPage() {
     setConfirmPasswordVisible(!confirmPasswordVisible);
   };
 
-  return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-white font-[\'Times New Roman\', serif]">
-      <div className="absolute top-0 right-0">
+  return (<>
+    <header className="flex flex-row gap-3 w-full justify-center md:justify-start items-center p-4">
+      <img
+        src="/assets/images/logo.jpeg"
+        alt="Logo da Editora"
+        style={{ width: "91.29px", height: "87.23px" }}
+      />
+      <h1 className="font-playfair font-semibold text-xl hidden md:block">
+        A EDITORA QUE VAI TE ENCANTAR
+      </h1>
+    </header>
+    <main className="flex flex-col items-center  bg-white font-[\'Times New Roman\', serif]">
+      <div className="hidden absolute top-0 right-0 lg:block">
         <img
           src="/assets/images/livros_cadastro_cima.png"
           alt="Livros"
           className="w-[200px] sm:w-[300px]"
         />
       </div>
-      <div className="absolute bottom-0 left-0">
+      <div className="hidden absolute bottom-0 left-0 lg:block">
         <img
           src="/assets/images/livros_cadastro.png"
           alt="Livros"
           className="w-[200px] sm:w-[300px]"
         />
       </div>
-      <div className="'flex flex-row gap-3 w-[330px] absolute top-0 left-0 flex items-center p-4">
-        <img
-          src="/assets/images/logo.jpeg"
-          alt="Logo da Editora"
-          style={{ width: "91.29px", height: "87.23px" }}
-        />
-        <span className="font-playfair font-semibold text-xl hidden md:block">
-          A EDITORA QUE VAI TE ENCANTAR
-        </span>
-      </div>
 
       <div
-        className="w-full max-w-3xl p-8 bg-white rounded-lg shadow-xl shadow-gray-400"
+        className=" flex flex-col items-center w-[100%] md:w-[90%] p-8 bg-white rounded-lg shadow-xl shadow-gray-400"
         style={{
-          width: "774.07px",
-          height: "670.24px",
           borderRadius: "10px",
           boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
         }}
       >
-        <div className="text-center mb-6" style={{ textAlign: "center" }}>
-          <div
-            style={{
-              backgroundColor: "#57614f",
-              color: "#ffffff",
-              display: "inline-block",
-              padding: "0 10px",
-            }}
-          >
-            <h1 className="text-2xl font-bold mb-2">
-              BEM-VINDO AO PENSAMENTOS DE QUINTA
-            </h1>
-          </div>
-        </div>
-        <div
-          className="text-center mb-2"
-          style={{ color: "black", marginTop: "-20px" }}
-        >
-          <h1 className="text-sm">
-            ONDE IDEIAS GANHAM VIDA E INSPIRAÇÕES FLORESCEM. CONECTE-SE, REFLITA
-            E DESCUBRA NOVOS HORIZONTES A CADA VISITA!
-          </h1>
-        </div>
-        <div className="text-center mb-4" style={{ textAlign: "center" }}>
-          <div
-            style={{
-              backgroundColor: "#d1bda0",
-              color: "black",
-              display: "inline-block",
-              padding: "0 10px",
-            }}
-          >
-            <h2 className="text-center font-bold">JUNTE-SE A NÓS!</h2>
-          </div>
-        </div>
+        <h2 className=" text-2xl font-bold mb-2  bg-[#57614f] text-white px-3">
+          BEM-VINDO AO PENSAMENTOS DE QUINTA
+        </h2>
+
+
+        <p className="text-sm text-center text-black mt-1 font-bold mb-6 w-[80%]">
+          ONDE IDEIAS GANHAM VIDA E INSPIRAÇÕES FLORESCEM. CONECTE-SE, REFLITA
+          E DESCUBRA NOVOS HORIZONTES A CADA VISITA!
+        </p>
+
+        <span className="text-center font-bold bg-[#d1bda0] mb-5">JUNTE-SE A NÓS!</span>
+
         <FormProvider {...methods}>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+          <form className="w-full" onSubmit={handleSubmit(onSubmit)}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6">
               <div>
                 <label
                   className="block text-sm text-gray-600 mb-2"
@@ -131,7 +106,6 @@ export function LoginCadastroPage() {
                 </label>
                 <InputForm
                   name="fullName"
-                  className="w-full px-4 py-2 bg-[#d1d4be] rounded-lg text-sm"
                   placeholder="Digite seu nome completo"
                 />
               </div>
@@ -144,7 +118,6 @@ export function LoginCadastroPage() {
                 </label>
                 <InputForm
                   name="username"
-                  className="w-full px-4 py-2 bg-[#d1d4be] rounded-lg text-sm"
                   placeholder="Digite seu nome de usuário"
                 />
               </div>
@@ -158,7 +131,6 @@ export function LoginCadastroPage() {
                 <InputForm
                   name="email"
                   type="email"
-                  className="w-full px-4 py-2 bg-[#d1d4be] rounded-lg text-sm"
                   placeholder="Digite seu e-mail"
                 />
               </div>
@@ -172,7 +144,6 @@ export function LoginCadastroPage() {
                 <InputForm
                   name="phone"
                   type="text"
-                  className="w-full px-4 py-2 bg-[#d1d4be] rounded-lg text-sm"
                   placeholder="Digite seu telefone"
                 />
               </div>
@@ -185,9 +156,7 @@ export function LoginCadastroPage() {
                 </label>
                 <InputForm
                   name="birthDate"
-                  type="date"
-                  className="w-full px-4 py-2 bg-[#d1d4be] rounded-lg text-sm"
-                />
+                  type="date" />
               </div>
               <div>
                 <label
@@ -199,7 +168,6 @@ export function LoginCadastroPage() {
                 <InputForm
                   name="cpf"
                   type="text"
-                  className="w-full px-4 py-2 bg-[#d1d4be] rounded-lg text-sm"
                   placeholder="Digite seu CPF"
                 />
               </div>
@@ -209,51 +177,56 @@ export function LoginCadastroPage() {
             <h2 className="text-lg font-bold mb-4">DEFINA SUA SENHA</h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-              <div className="relative">
+              <div>
                 <label
                   className="block text-sm text-gray-600 mb-2"
                   style={{ fontWeight: "bold" }}
                 >
                   Senha
                 </label>
-                <InputForm
-                  name="password"
-                  type={passwordVisible ? "text" : "password"}
-                  className="w-full px-4 py-2 bg-[#d1d4be] rounded-lg text-sm"
-                  placeholder="Crie uma senha"
-                />
-                <button
-                  type="button"
-                  className="absolute inset-y-0 top-7 right-0 flex items-center px-3"
-                  onClick={togglePasswordVisibility}
-                >
-                  {passwordVisible ? <Eye size={20} /> : <EyeSlash size={20} />}
-                </button>
+
+                <div className="flex flex-col relative">
+                  <InputForm
+                    name="password"
+                    type={passwordVisible ? "text" : "password"}
+                    placeholder="Crie uma senha"
+                  />
+                  <button
+                    type="button"
+                    className=" mr-2  float-right absolute right-1 mt-2"
+                    onClick={togglePasswordVisibility}
+                  >
+                    {passwordVisible ? <Eye size={20} /> : <EyeSlash size={20} />}
+                  </button>
+                </div>
               </div>
-              <div className="relative">
+
+              <div>
                 <label
                   className="block text-sm text-gray-600 mb-2"
                   style={{ fontWeight: "bold" }}
                 >
                   Confirmar senha
                 </label>
-                <InputForm
-                  name="confirmPassword"
-                  type={confirmPasswordVisible ? "text" : "password"}
-                  className="w-full px-4 py-2 bg-[#d1d4be] rounded-lg text-sm"
-                  placeholder="Confirme sua senha"
-                />
-                <button
-                  type="button"
-                  className="absolute inset-y-0 top-7 right-0 flex items-center px-3"
-                  onClick={toggleConfirmPasswordVisibility}
-                >
-                  {confirmPasswordVisible ? (
-                    <Eye size={20} />
-                  ) : (
-                    <EyeSlash size={20} />
-                  )}
-                </button>
+                <div className="flex flex-col relative">
+
+                  <InputForm
+                    name="confirmPassword"
+                    type={confirmPasswordVisible ? "text" : "password"}
+                   placeholder="Confirme sua senha"
+                  />
+                  <button
+                    type="button"
+                    className=" mr-2 float-right absolute right-1 mt-2"
+                   onClick={toggleConfirmPasswordVisibility}
+                  >
+                    {confirmPasswordVisible ? (
+                      <Eye size={20} />
+                    ) : (
+                      <EyeSlash size={20} />
+                    )}
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -288,6 +261,7 @@ export function LoginCadastroPage() {
       >
         Retornar para a tela inicial
       </a>
-    </div>
+    </main>
+  </>
   );
 }
