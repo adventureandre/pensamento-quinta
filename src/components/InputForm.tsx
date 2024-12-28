@@ -35,7 +35,7 @@ export function InputForm({ name, mask, disabled, ...props }: InputProps) {
           {(errors[name] as any).message}
         </p>
       ):(
-        <p className="text-red-500 text-sm mt-1 text-[0]">
+        <p className="text-red-500 text-sm mt-1 text-[0px]">
         Error
       </p>
       )}
