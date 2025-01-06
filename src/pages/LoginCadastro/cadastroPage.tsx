@@ -4,7 +4,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye, EyeSlash } from "phosphor-react";
 import { InputForm } from "@/components/InputForm";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const formSchema = z
   .object({
@@ -56,11 +56,13 @@ export function CadastroPage() {
 
   return (<>
     <header className="flex flex-row gap-3 w-full justify-center md:justify-start items-center p-4">
-      <img
-        src="/assets/images/logo.jpeg"
-        alt="Logo da Editora"
-        style={{ width: "91.29px", height: "87.23px" }}
-      />
+    <Link to="/">
+          <img
+            src="/assets/images/logo.jpeg"
+            alt="Logo da Editora"
+            style={{ width: "91.29px", height: "87.23px" }}
+          />
+        </Link>
       <h1 className="font-playfair font-semibold text-xl hidden md:block">
         A EDITORA QUE VAI TE ENCANTAR
       </h1>
