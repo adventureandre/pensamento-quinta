@@ -26,7 +26,7 @@ export function NossosLivros() {
   const handleMouseEnterImage = (index: number) => {
     const timeout = setTimeout(() => {
       setShowSinopse(index);
-    }, 800); // tempo
+    }, 800); // Delay para mostrar a sinopse
     setHoverTimeout(timeout);
   };
 
@@ -54,14 +54,15 @@ export function NossosLivros() {
           Todos
         </button>
 
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2 md:gap-8 justify-center">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 justify-center">
           {livros.map((livro, index) => (
             <div
               key={index}
-              className="relative bg-white shadow-2xl rounded-lg p-4 flex flex-col items-center transform transition-transform hover:scale-105 max-w-xs mx-auto overflow-hidden"
+              className="relative bg-white shadow-2xl rounded-lg p-4 flex flex-col items-center transform transition-transform hover:scale-105 max-w-md mx-auto overflow-hidden"
             >
+              {/* Botão de Favoritos */}
               <button
-                className="absolute top-3 right-3 z-20"
+                className="absolute top-3 right-3 z-30"
                 onClick={() => toggleFavorito(index)}
               >
                 <Heart
@@ -73,6 +74,7 @@ export function NossosLivros() {
                 />
               </button>
 
+              {/* Imagem do livro */}
               <div
                 className="relative w-full h-40"
                 onMouseEnter={() => handleMouseEnterImage(index)}
@@ -84,8 +86,9 @@ export function NossosLivros() {
                   className="w-full h-full object-cover rounded-lg"
                 />
 
+                {/* Sinopse sobreposta à imagem */}
                 {showSinopse === index && (
-                  <div className="absolute inset-0 bg-white bg-opacity-95 flex flex-col justify-center items-center p-4 rounded-lg shadow-xl z-10 animate-tracking-in-contract-bck overflow-hidden">
+                  <div className="absolute inset-0 bg-white bg-opacity-95 flex flex-col justify-center items-center p-4 rounded-lg shadow-xl z-20 animate-tracking-in-contract-bck overflow-hidden">
                     <h3 className="text-lg font-bold mb-2 text-gray-800">
                       {livro.titulo}
                     </h3>
@@ -99,8 +102,8 @@ export function NossosLivros() {
                 )}
               </div>
 
+              {/* Informações do livro */}
               <h2 className="text-center text-sm font-bold mb-2">{livro.titulo}</h2>
-
               <p className="text-lg font-bold text-gray-700 mb-4">{livro.preco}</p>
 
               <button className="bg-[#E5D2B8] text-black py-1 px-4 rounded-md font-bold text-sm hover:bg-[#d4c0a7] transition">
