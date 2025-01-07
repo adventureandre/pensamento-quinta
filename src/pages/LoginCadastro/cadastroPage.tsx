@@ -264,8 +264,7 @@ export function CadastroPage() {
       </div>
       <a
         href="/"
-        className="text-black text-sm hover:underline"
-        style={{ marginTop: "16px" }}
+        className="text-black text-sm hover:underline mb-10 mt-10"
       >
         Retornar para a tela inicial
       </a>
