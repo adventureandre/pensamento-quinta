@@ -9,6 +9,7 @@ import { NossosServicos } from "./pages/NossosServicos";
 import { NossosAutores } from "./pages/NossosAutores";
 import { AuthLayout } from "./layouts/AuthLayout";
 import { LoginPage } from "./pages/LoginCadastro/loginPage";
+import { Checkout } from "./pages/Checkout"
 
 export function Router() {
     return (
@@ -20,6 +21,7 @@ export function Router() {
                     <Route path="/nossosservicos" element={<NossosServicos />} />
                     <Route path="/nossoslivros" element={<NossosLivros />} />
                     <Route path="/nossosautores" element={<NossosAutores />} />
+                    <Route path="/checkout" element={<Checkout />} />;
 
                     <Route path="/dashboard/:section" element={<DashboardPage />} />
                 </Route>
@@ -29,6 +31,6 @@ export function Router() {
                     <Route path="/cadastro" element={<CadastroPage />} />
                 </Route>
             </Routes>
-        </BrowserRouter >
-    )
+        </BrowserRouter>
+    );
 }
