@@ -16,6 +16,25 @@ export default {
         rockSalt: ["Rock Salt", "cursive"],
         playfair: ["Playfair Display", "serif"],
       },
+      keyframes: {
+        "tracking-in-contract-bck": {
+          "0%": {
+            "letter-spacing": "1em",
+            transform: "translateZ(400px)",
+            opacity: "0",
+          },
+          "40%": {
+            opacity: "0.6",
+          },
+          "100%": {
+            transform: "translateZ(0)",
+            opacity: "1",
+          },
+        },
+      },
+      animation: {
+        "tracking-in-contract-bck": "tracking-in-contract-bck 1.2s ease-in-out both",
+      },
     },
   },
   plugins: [],
