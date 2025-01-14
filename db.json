@@ -33,22 +33,26 @@
     {
       "id": 1,
       "name": "Autor 1",
-      "bio": "Biografia do Autor 1"
+      "bio": "Biografia do Autor 1",
+      "foto":"/assets/images/Clarice_Lispector.jpg"
     },
     {
       "id": 2,
       "name": "Harper Lee",
-      "bio": "Harper Lee foi uma escritora americana, famosa por seu livro 'To Kill a Mockingbird'."
+      "bio": "Harper Lee foi uma escritora americana, famosa por seu livro 'To Kill a Mockingbird'.",
+      "foto":"/assets/images/Clarice_Lispector.jpg"
     },
     {
       "id": 3,
       "name": "George Orwell",
-      "bio": "George Orwell foi um escritor britânico, famoso por '1984' e 'Animal Farm'."
+      "bio": "George Orwell foi um escritor britânico, famoso por '1984' e 'Animal Farm'.",
+      "foto":"/assets/images/Clarice_Lispector.jpg"
     },
     {
       "id": 4,
       "name": "F. Scott Fitzgerald",
-      "bio": "F. Scott Fitzgerald foi um escritor americano, mais conhecido por 'The Great Gatsby'."
+      "bio": "F. Scott Fitzgerald foi um escritor americano, mais conhecido por 'The Great Gatsby'.",
+      "foto":"/assets/images/Clarice_Lispector.jpg"
     }
   ],
   "users": [
