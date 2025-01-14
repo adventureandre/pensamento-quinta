@@ -1,14 +1,14 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { autoresStore } from "@/store/autoresStore";
 
 export function NossosAutores() {
   const navigate = useNavigate();
+  const { autores, load, isLoading } = autoresStore();
 
-  const autores = Array(6).fill({
-    id: 1,
-    nome: "Clarice Lispector",
-    foto: "/assets/images/Clarice_Lispector.jpg",
-  });
+  useEffect(() => {
+    load();
+  }, [load]);
 
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
 
@@ -52,24 +52,32 @@ export function NossosAutores() {
             &gt; <span>Nossos Autores</span>
           </nav>
 
-          <div className="flex flex-wrap gap-8 justify-center">
-            {autores.map((autor, index) => (
-              <div
-                key={index}
-                className="bg-white shadow-lg border border-gray-300 rounded-lg p-6 flex flex-col items-center w-72 transform transition-transform hover:scale-105 hover:shadow-2xl"
-              >
-                <img
-                  src={autor.foto}
-                  alt={autor.nome}
-                  className="w-32 h-32 object-cover rounded-full mb-4"
-                />
-                <h2 className="text-center text-xl font-bold">{autor.nome}</h2>
-                <button className="bg-[#E5D2B8] text-black py-1 px-4 rounded-md font-bold text-sm hover:bg-[#d4c0a7] transition mt-4">
-                  Saiba mais
-                </button>
-              </div>
-            ))}
-          </div>
+          {isLoading ? (
+            // Indicador de carregamento
+            <div className="flex justify-center items-center h-64">
+              <p className="text-gray-500 text-lg font-semibold">Carregando...</p>
+            </div>
+          ) : (
+            // Lista de autores
+            <div className="flex flex-wrap gap-8 justify-center">
+              {autores?.map((autor, index) => (
+                <div
+                  key={index}
+                  className="bg-white shadow-lg border border-gray-300 rounded-lg p-6 flex flex-col items-center w-72 transform transition-transform hover:scale-105 hover:shadow-2xl"
+                >
+                  <img
+                    src={autor.foto}
+                    alt={autor.name}
+                    className="w-32 h-32 object-cover rounded-full mb-4"
+                  />
+                  <h2 className="text-center text-xl font-bold">{autor.name}</h2>
+                  <button className="bg-[#E5D2B8] text-black py-1 px-4 rounded-md font-bold text-sm hover:bg-[#d4c0a7] transition mt-4">
+                    Saiba mais
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </main>
     </div>
