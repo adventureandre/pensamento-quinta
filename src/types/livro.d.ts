@@ -4,4 +4,5 @@ export interface Livro {
   price: number;
   title: string;
   authorId: number;
+  author:string
 }

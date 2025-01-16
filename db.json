@@ -5,7 +5,8 @@
       "imgSrc": "./assets/images/livro.png",
       "price": 89.25,
       "title": "O que Guardei na Gaveta",
-      "authorId": 1
+      "authorId": 1,
+      "author": "F.Scott"
     },
     {
       "id": 2,
@@ -19,14 +20,16 @@
       "imgSrc": "./assets/images/livro2.png",
       "price": 40.90,
       "title": "Revolução dos Bichos",
-      "authorId": 3
+      "authorId": 3,
+      "author": "F.Scott"
     },
     {
       "id": 4,
       "imgSrc": "./assets/images/livro2.png",
       "price": 45.00,
       "title": "The Great Gatsby",
-      "authorId": 4
+      "authorId": 4,
+      "author": "F.Scott"
     }
   ],
   "autores": [
