@@ -1,5 +1,3 @@
-// src/pages/Livros.tsx
-
 import { useState, useEffect, useRef } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { z } from "zod";
@@ -67,14 +65,13 @@ export function Livros() {
     resolver: zodResolver(cepSchema),
   });
 
-  // Busca os dados do livro quando o componente é montado ou quando o ID muda
   useEffect(() => {
     const fetchLivro = async () => {
       setIsLoading(true);
       if (id) {
         const livroData = await findById(Number(id));
         if (livroData) {
-          console.log("Dados do livro:", livroData); // Para depuração
+          console.log("Dados do livro:", livroData);
           setLivro(livroData);
           if (livroData.imgSrc) {
             setCurrentImage(livroData.imgSrc);
@@ -92,7 +89,6 @@ export function Livros() {
     fetchLivro();
   }, [id, findById]);
 
-  // Função para iniciar o aumento ou diminuição contínua da quantidade
   const handleMouseDown = (operation: "increase" | "decrease") => {
     if (operation === "increase") increaseQuantity();
     else decreaseQuantity();
@@ -107,16 +103,13 @@ export function Livros() {
     timeoutId.current = timeout;
   };
 
-  // Função para parar o aumento ou diminuição contínua da quantidade
   const handleMouseUp = () => {
     if (intervalId.current) clearInterval(intervalId.current);
     if (timeoutId.current) clearTimeout(timeoutId.current);
   };
 
-  // Função para tratar a submissão do CEP
   const onSubmit: SubmitHandler<CepSchema> = (data) => {
     alert(`CEP válido: ${data.cep}`);
-    // Lógica para consultar o frete
   };
 
   if (isLoading) {
@@ -134,6 +127,8 @@ export function Livros() {
       </div>
     );
   }
+
+  const thumbnails = Array(4).fill(currentImage);
 
   return (
     <div className="min-h-screen py-12 font-sans">
@@ -163,6 +158,18 @@ export function Livros() {
                 className="w-full rounded-2xl"
               />
             </div>
+            {/* Miniaturas */}
+            <div className="flex gap-4 justify-center">
+              {thumbnails.map((imageUrl, index) => (
+                <img
+                  key={index}
+                  src={imageUrl}
+                  alt={`Miniatura ${index + 1}`}
+                  className="w-28 h-28 object-cover rounded-lg cursor-pointer"
+                  onClick={() => setCurrentImage(imageUrl)}
+                />
+              ))}
+            </div>
           </div>
 
           {/* Detalhes do livro */}
@@ -172,7 +179,6 @@ export function Livros() {
                 <h2 className="text-3xl font-bold text-gray-800">
                   {livro.title}
                 </h2>
-                {/* Exibe o autor, se disponível */}
                 {livro.author && (
                   <p className="text-gray-500 mt-1 font-semibold">
                     {livro.author}
@@ -225,7 +231,9 @@ export function Livros() {
             </div>
             {/* Informações adicionais */}
             <p className="text-sm text-gray-600 mt-4 font-semibold">
-              <span className="font-bold text-gray-700">Pedido em Estoque:</span>{" "}
+              <span className="font-bold text-gray-700">
+                Pedido em Estoque:
+              </span>{" "}
               após confirmação do pagamento, envio imediato. Confira os prazos de
               entrega abaixo.
             </p>
