@@ -4,7 +4,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye, EyeSlash } from "phosphor-react";
 import { InputForm } from "@/components/InputForm";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const formSchema = z
   .object({
@@ -150,9 +150,9 @@ export function LoginPage() {
             <p className="text-black font-bold text-sm">
             Ainda não possui conta? Acesse aqui &nbsp;
             </p>
-            <a href="/cadastro" className="text-black underline">
+            <Link to="/cadastro" className="text-black underline">
                 Quero me cadastrar
-              </a>
+              </Link>
           </div>
         </div>
         <a
