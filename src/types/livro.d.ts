@@ -1,8 +1,14 @@
 export interface Livro {
   id: number;
-  imgSrc: string;
-  price: number;
   title: string;
-  authorId: number;
-  author:string
+  price: number;
+  imgSrc: string;
+  sinopse: string;
+  editora: string;
+  isbn: string;
+  paginas: number;
+  ano: number;
+  edicao: string;
+  authorId?: number;
+  author?: string;
 }
