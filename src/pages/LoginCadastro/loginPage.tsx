@@ -150,7 +150,7 @@ export function LoginPage() {
             <p className="text-black font-bold text-sm">
             Ainda não possui conta? Acesse aqui &nbsp;
             </p>
-            <a href="cadastro" className="text-black underline">
+            <a href="/cadastro" className="text-black underline">
                 Quero me cadastrar
               </a>
           </div>
