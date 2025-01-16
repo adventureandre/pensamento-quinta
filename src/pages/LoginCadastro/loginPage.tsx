@@ -155,13 +155,13 @@ export function LoginPage() {
               </Link>
           </div>
         </div>
-        <a
-          href="/"
+        <Link
+          to="/"
           className="text-black text-sm hover:underline"
           style={{ marginTop: "16px" }}
         >
           Retornar para a tela inicial
-        </a>
+        </Link>
       </main>
     </section>
   );
