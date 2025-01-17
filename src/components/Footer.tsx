@@ -1,5 +1,4 @@
 import { FacebookLogo, WhatsappLogo, InstagramLogo, TwitterLogo } from "phosphor-react";
-import { Link } from "react-router-dom";
 
 
 // const BASE_URL = import.meta.env.VITE_BASE_URL

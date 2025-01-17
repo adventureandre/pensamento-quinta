@@ -1,4 +1,4 @@
-import { Navigation, Pagination, Scrollbar } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow } from 'swiper/modules';
 import { useState, useEffect } from 'react';
@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+
 
 export function Carousel() {
   const [figura, setFigura] = useState<Ifigura[]>([])
@@ -15,6 +16,7 @@ export function Carousel() {
     image: string;
     alt: string;
   }
+
 
   const imagens = [{
     id: '1',
@@ -78,19 +80,25 @@ export function Carousel() {
 
   return (
     <Swiper
-      modules={[Navigation, Pagination, Scrollbar, EffectCoverflow]}
+      modules={[Navigation, Pagination, Scrollbar, EffectCoverflow, Autoplay]}
       effect='coverflow'
       speed={700}
       slidesPerView={1}
+      autoplay={{ delay: 3000, disableOnInteraction: false }}
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
+      loop={true}  // Adicionando loop para continuidade sem travamentos
+      preloadImages={false}  // Evitar carregar todas as imagens de uma vez
+      lazy={true}  // Carregar imagens conforme necessário
     >
       {figura.map((item) => (
         <SwiperSlide key={item.id}>
           <img
             src={item.image}
             alt={item.alt}
-            className='w-[100%] h-[525px] max-sm:h-[220px]' />
+            className='w-[100%] h-[525px] max-sm:h-[220px]'
+            loading="lazy"  // Garantir carregamento preguiçoso das imagens
+          />
         </SwiperSlide>
       ))}
     </Swiper>
