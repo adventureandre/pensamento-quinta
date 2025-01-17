@@ -81,10 +81,9 @@ export function Carousel() {
   return (
     <Swiper
       modules={[Navigation, Pagination, Scrollbar, EffectCoverflow, Autoplay]}
-      effect='coverflow'
-      speed={700}
+      speed={4000}
       slidesPerView={1}
-      autoplay={{ delay: 3000, disableOnInteraction: false }}
+      autoplay={{ delay: 2000, disableOnInteraction: false }}
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
       loop={true}  // Adicionando loop para continuidade sem travamentos
