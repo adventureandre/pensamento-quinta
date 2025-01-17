@@ -7,11 +7,13 @@ import { CadastroEndereco } from "./pages/LoginCadastro/cadastroEndereco";
 import { CadastroSenha } from "./pages/LoginCadastro/cadastroSenha";
 import { DashboardPage } from "./pages/DashBoard";
 import { NossosLivros } from "./pages/NossosLivros";
+import { Livros } from "./pages/Livros";
 import { NossosServicos } from "./pages/NossosServicos";
 import { NossosAutores } from "./pages/NossosAutores";
 import { AuthLayout } from "./layouts/AuthLayout";
 import { LoginPage } from "./pages/LoginCadastro/loginPage";
 import { Checkout } from "./pages/Checkout";
+
 
 export function Router() {
   return (
@@ -23,6 +25,7 @@ export function Router() {
           <Route path="quemsomos" element={<QuemSomosPage />} />
           <Route path="nossosservicos" element={<NossosServicos />} />
           <Route path="nossoslivros" element={<NossosLivros />} />
+          <Route path="livros/:id" element={<Livros />} />
           <Route path="nossosautores" element={<NossosAutores />} />
           <Route path="checkout" element={<Checkout />} />
           <Route path="dashboard/:section" element={<DashboardPage />} />
