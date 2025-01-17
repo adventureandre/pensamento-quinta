@@ -79,7 +79,10 @@ export function NossosLivros() {
                   <h2 className="text-center text-sm font-bold mb-2">{livro.title}</h2>
                   <p className="text-lg font-bold text-gray-700 mb-4">{`R$ ${livro.price.toFixed(2)}`}</p>
 
-                  <button className="bg-[#E5D2B8] text-black py-1 px-4 rounded-md font-bold text-sm hover:bg-[#d4c0a7] transition">
+                  <button
+                    onClick={() => navigate(`/livros/${livro.id}`)} // Redireciona para a página do livro
+                    className="bg-[#E5D2B8] text-black py-1 px-4 rounded-md font-bold text-sm hover:bg-[#d4c0a7] transition"
+                  >
                     Comprar
                   </button>
                 </div>
