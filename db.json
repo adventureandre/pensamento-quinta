@@ -2,57 +2,85 @@
   "livros": [
     {
       "id": 1,
-      "imgSrc": "./assets/images/livro.png",
+      "imgSrc": "/assets/images/livro.png",
       "price": 89.25,
       "title": "O que Guardei na Gaveta",
-      "authorId": 1
+      "authorId": 1,
+      "author": "F. Scott Fitzgerald",
+      "sinopse": "Este livro explora os pensamentos guardados e as memórias esquecidas ao longo dos anos.",
+      "editora": "Editora A",
+      "isbn": "978-3-16-148410-0",
+      "paginas": 200,
+      "ano": 2015,
+      "edicao": "1ª"
     },
     {
       "id": 2,
-      "imgSrc": "./assets/images/livro2.png",
+      "imgSrc": "/assets/images/livro2.png",
       "price": 37.90,
       "title": "To Kill a Mockingbird",
-      "authorId": 2
+      "authorId": 2,
+      "author": "Harper Lee",
+      "sinopse": "Um retrato comovente sobre justiça e preconceito no sul dos Estados Unidos.",
+      "editora": "Editora B",
+      "isbn": "978-0-06-112008-4",
+      "paginas": 281,
+      "ano": 1960,
+      "edicao": "1ª"
     },
     {
       "id": 3,
-      "imgSrc": "./assets/images/livro2.png",
+      "imgSrc": "/assets/images/livro2.png",
       "price": 40.90,
       "title": "Revolução dos Bichos",
-      "authorId": 3
+      "authorId": 3,
+      "author": "George Orwell",
+      "sinopse": "Uma fábula sobre poder e corrupção em uma sociedade animal autogerida.",
+      "editora": "Editora C",
+      "isbn": "978-0-452-28423-4",
+      "paginas": 112,
+      "ano": 1945,
+      "edicao": "1ª"
     },
     {
       "id": 4,
-      "imgSrc": "./assets/images/livro2.png",
+      "imgSrc": "/assets/images/livro2.png",
       "price": 45.00,
       "title": "The Great Gatsby",
-      "authorId": 4
+      "authorId": 4,
+      "author": "F. Scott Fitzgerald",
+      "sinopse": "Uma história sobre sonhos, amor e desilusão na Era do Jazz.",
+      "editora": "Editora D",
+      "isbn": "978-0-7432-7356-5",
+      "paginas": 180,
+      "ano": 1925,
+      "edicao": "1ª"
     }
   ],
   "autores": [
     {
       "id": 1,
-      "name": "Clarisse Lispector",
-      "bio": "Biografia do Autor 1",
-      "foto":"/assets/images/Clarice_Lispector.jpg"
+      "name": "F. Scott Fitzgerald",
+      "bio": "F. Scott Fitzgerald foi um escritor americano, conhecido por retratar a Era do Jazz.",
+      "foto": "/assets/images/Scott_Fitzgerald.jpg"
     },
     {
       "id": 2,
       "name": "Harper Lee",
-      "bio": "Harper Lee foi uma escritora americana, famosa por seu livro 'To Kill a Mockingbird'.",
-      "foto":"/assets/images/Harper_Lee.jpg"
+      "bio": "Harper Lee foi uma escritora americana, famosa por 'To Kill a Mockingbird'.",
+      "foto": "/assets/images/Harper_Lee.jpg"
     },
     {
       "id": 3,
       "name": "George Orwell",
-      "bio": "George Orwell foi um escritor britânico, famoso por '1984' e 'Animal Farm'.",
-      "foto":"/assets/images/George_Orwell.jpg"
+      "bio": "George Orwell foi um escritor britânico, renomado por suas críticas sociais em '1984' e 'Revolução dos Bichos'.",
+      "foto": "/assets/images/George_Orwell.jpg"
     },
     {
       "id": 4,
-      "name": "F. Scott Fitzgerald",
-      "bio": "F. Scott Fitzgerald foi um escritor americano, mais conhecido por 'The Great Gatsby'.",
-      "foto":"/assets/images/Scott_Fitzgerald.jpg"
+      "name": "Clarice Lispector",
+      "bio": "Clarice Lispector foi uma escritora brasileira, reconhecida por sua profundidade psicológica.",
+      "foto": "/assets/images/Clarice_Lispector.jpg"
     }
   ],
   "users": [
@@ -109,21 +137,14 @@
     {
       "id": 101,
       "userId": 1,
-      "products": [
-        1,
-        3,
-        2
-      ],
+      "products": [1, 3, 2],
       "totalPrice": 120.70,
       "status": 0
     },
     {
       "id": 102,
       "userId": 2,
-      "products": [
-        3,
-        2
-      ],
+      "products": [3, 2],
       "totalPrice": 83.90,
       "status": 0
     }
@@ -149,14 +170,14 @@
   "discounts": [
     {
       "id": 1,
-      "name":"natal20",
+      "name": "natal20",
       "orderId": 101,
       "description": "Desconto de Natal",
       "percentage": 20
     },
     {
       "id": 2,
-      "name":"livraria10",
+      "name": "livraria10",
       "orderId": 102,
       "description": "Desconto de Parceiro",
       "percentage": 10
