@@ -1,38 +1,78 @@
+import { useState } from "react";
+import { CaretDown, CaretUp } from "phosphor-react";
+
 export function CuriosidadeHome() {
-    return (
-            <section className=" flex justify-center flex-wrap gap-10 mt-20 items-center">
-                <div className="w-[80%] flex flex-col items-center justify-center ">
+  const [visibleItem, setVisibleItem] = useState<number | null>(null);
 
-                    <div className=" bg-[#b3b79256] w-[70%] flex justify-center p-2 mb-5">
-                        <h1 className="font-playfair pt-3 px-3 border w-full text-center bg-white mb-[-16px]">
-                            Curiosidades Sobre a Pensamentos de Quinta
-                        </h1>
-                    </div>
+  const handleClick = (item: number) => {
+    setVisibleItem(prevItem => (prevItem === item ? null : item));
+  };
 
-                    <article className="flex flex-col md:flex-row gap-4 mt-6 md:items-center">
-                        <img className="w-[360px] h-[477px]" src="./assets/images/curiosidade.png" alt="Imagem ilustrativa de curiosidade" />
-                        <header className=" w-full">
-                            <h2 className="text-2xl mb-3 font-playfair font-light ">O Papel do Editor Vai Além da Revisão</h2>
-                            <p className="text-sm mb-2 mt-2">
-                                <span className="font-bold text-base block font-playfair">O Papel do Editor Vai Além da Revisão</span>
-                                Editoras não apenas corrigem textos: O trabalho envolve selecionar manuscritos, ajudar autores a aprimorar suas obras, escolher títulos, criar estratégias de marketing e até decidir o design das capas.
-                                Um editor atua como o "curador" da obra, equilibrando a visão do autor com as expectativas do mercado.
-                            </p>
-                            <hr />
-                            <p className=" text-sm mb-2 mt-2">
-                                <span className="font-bold text-base block font-playfair">Muitas Editoras Começaram em Garagens ou Pequenos Espaços</span>
-                                O mercado editorial teve seu início em pequenos ambientes, onde os primeiros editores começaram suas operações em locais improvisados, como garagens ou escritórios pequenos.
-                            </p>
-                            <hr />
-                            <p className=" text-sm mb-2 mt-2">
-                                <span className="font-bold text-base block font-playfair">Livros Rejeitados Podem se Tornar Sucessos</span>
-                                Muitos livros que foram inicialmente rejeitados por editoras acabaram se tornando grandes sucessos de vendas, como "Harry Potter", que foi recusado por várias editoras antes de ser publicado.
-                            </p>
-                        </header>
-                    </article>
+  return (
+    <section className="flex flex-col items-center py-6 md:py-8">
+      {/* Título da seção com destaque */}
+      <div className="relative mb-4 md:mb-6 w-full max-w-xs md:w-max mx-4">
+        <div className="absolute inset-0 bg-[#b3b792] transform -translate-x-1 md:-translate-x-2 -translate-y-1 md:-translate-y-2" />
+        <h1 className="relative font-playfair px-4 py-1 md:pt-2 border text-lg md:text-xl bg-white text-center">
+          Curiosidades Sobre a Pensamentos de Quinta
+        </h1>
+      </div>
+
+      <div className="max-w-7xl w-full px-4 md:px-8">
+        <article className="flex flex-col md:flex-row gap-4 md:gap-6 md:items-center">
+          {/* Container da imagem com margem inferior para mobile */}
+          <div className="w-full md:w-1/3 flex justify-center mb-6 md:mb-0">
+            <img
+              className="max-w-xs md:max-w-full w-full h-auto object-cover rounded-lg transition-transform duration-300 ease-in-out hover:scale-105"
+              src="./assets/images/curiosidade.png"
+              alt="Imagem ilustrativa de curiosidade"
+            />
+          </div>
+
+          {/* Lista de Curiosidades */}
+          <div className="w-full md:w-2/3">
+            {[1, 2, 3].map((item) => (
+              <div key={item} className="mb-3 md:mb-4">
+                <div
+                  className="flex items-center justify-between cursor-pointer gap-2"
+                  onClick={() => handleClick(item)}
+                >
+                  <h2 className="text-lg md:text-xl font-bold text-gray-800">
+                    {item === 1 && 'O Papel do Editor Vai Além da Revisão'}
+                    {item === 2 && 'Muitas Editoras Começaram em Garagens'}
+                    {item === 3 && 'Livros Rejeitados Podem se Tornar Sucessos'}
+                  </h2>
+                  {visibleItem === item ? (
+                    <CaretUp size={20} className="text-gray-600" />
+                  ) : (
+                    <CaretDown size={20} className="text-gray-600" />
+                  )}
                 </div>
-                <hr className="bg-black p-[0.4px] w-[50%]" />
-            </section>
-    
-    );
+
+                <div
+                  className={`overflow-hidden transition-all duration-300 ${
+                    visibleItem === item ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <p className="text-sm md:text-base mt-1 text-gray-600">
+                    {item === 1 &&
+                      'Editores não apenas corrigem textos: o trabalho envolve selecionar manuscritos, aprimorar narrativas e transformar ideias em publicações cativantes.'}
+                    {item === 2 &&
+                      'O mercado editorial começou em pequenos ambientes, com editoras surgindo em garagens e, aos poucos, se transformando em grandes referências literárias.'}
+                    {item === 3 &&
+                      'Muitos livros rejeitados se tornaram grandes sucessos, provando que o julgamento inicial nem sempre acerta o potencial de uma obra.'}
+                  </p>
+                </div>
+
+                {item !== 3 && <div className="h-px bg-gray-200 my-3 md:my-4" />}
+              </div>
+            ))}
+          </div>
+        </article>
+      </div>
+
+      {/* Linha divisória simples */}
+      <div className="w-full max-w-4xl mt-8 md:mt-12 border-t border-gray-200" />
+    </section>
+  );
 }

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import logo from '../../../../public/assets/images/logo.jpeg';
+import logo from '../../../../public/assets/images/logo.png';
 
 export function MenuDashBoard() {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -21,10 +21,7 @@ export function MenuDashBoard() {
         texto: "Histórico de Pedidos",
         rota: "/dashboard/pedidos"
     },
-    {
-        texto: "Carteira",
-        rota: "/dashboard/carteira"
-    },
+
     {
         texto: "Lista de Desejos",
         rota: "/dashboard/favoritos"

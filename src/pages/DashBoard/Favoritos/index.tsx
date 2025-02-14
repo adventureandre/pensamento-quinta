@@ -1,8 +1,6 @@
 import { Heart } from "phosphor-react"
 
 export function FavoritosDashboard() {
-    const BASE_URL = import.meta.env.VITE_BASE_URL
-
 
     //    interface ILivros {
     //        src: string;
@@ -41,16 +39,13 @@ export function FavoritosDashboard() {
             <div className="w-full h-[420px] flex flex-wrap p-3 gap-x-6 mt-5 rounded-3xl">
                 {
                     livros.map(livro => (
-                        <article className="w-52 h-[370px] flex-col justify-items-center p-5 mt-5 rounded-3xl"
-                            style={{
-                                boxShadow: '4px 10px 10px rgba(0, 0, 0, 0.49)',
-                            }}>
+                        <article className="w-52 h-[370px] flex flex-col justify-items-center p-5 mt-5 rounded-3xl shadow-md">
                             <Heart className="justify-self-end" weight="fill" />
                             <img src={livro.src} alt={livro.titulo} className="w-30 mb-5" />
                             <h2 className="font-semibold">{livro.titulo}</h2>
                             <p className="font-semibold">- {livro.autor}</p>
                             <p className="font-semibold">R${livro.preço}</p>
-                            <button className="bg-[#e5d2b8] hover:bg-[#deb88a] w-32 px-2 py-0.4 rounded-xl font-semibold mt-5 cursor-pointer">Comprar</button>
+                            <button className="bg-[#e5d2b8] hover:bg-[#deb88a] w-32 px-2 py-1 rounded-xl font-semibold mt-5 cursor-pointer">Comprar</button>
                         </article>
                     ))
                 }

@@ -5,23 +5,60 @@ import { InputForm } from "@/components/InputForm";
 import { useNavigate, Link } from "react-router-dom";
 import { useCadastroStore } from "@/store/cadastroStore";
 
+const validateCPF = (cpf: string) => {
+  const cleanCPF = cpf.replace(/\D/g, "");
+  if (cleanCPF.length !== 11) return false;
+
+  let sum = 0;
+  let remainder;
+
+  for (let i = 1; i <= 9; i++) {
+    sum += parseInt(cleanCPF.substring(i - 1, i)) * (11 - i);
+  }
+  remainder = (sum * 10) % 11;
+  if (remainder === 10 || remainder === 11) remainder = 0;
+  if (remainder !== parseInt(cleanCPF.substring(9, 10))) return false;
+
+  sum = 0;
+  for (let i = 1; i <= 10; i++) {
+    sum += parseInt(cleanCPF.substring(i - 1, i)) * (12 - i);
+  }
+  remainder = (sum * 10) % 11;
+  if (remainder === 10 || remainder === 11) remainder = 0;
+  if (remainder !== parseInt(cleanCPF.substring(10, 11))) return false;
+
+  return true;
+};
+
+// Função para validar telefone
+const validatePhone = (phone: string) => {
+  const phoneRegex = /\(\d{2}\)\s\d{5}-\d{4}/;
+  return phoneRegex.test(phone);
+};
+
+// Função para validar e-mail
+const validateEmail = (email: string) => {
+  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  return emailRegex.test(email);
+};
+
 const formSchema = z.object({
   fullName: z.string().min(1, "Nome completo é obrigatório."),
   username: z.string().min(1, "Nome de usuário é obrigatório."),
-  email: z.string().email("E-mail inválido."),
-  phone: z.string().min(1, "Telefone é obrigatório."),
+  email: z.string().email("E-mail inválido.").refine(validateEmail),
+  phone: z.string().min(1, "Telefone é obrigatório.").refine(validatePhone),
   birthDate: z.string().min(1, "Data de nascimento é obrigatória."),
-  cpf: z.string().min(11, "CPF inválido."),
+  cpf: z.string().min(11, "CPF inválido.").refine(validateCPF),
 });
 
 type FormData = z.infer<typeof formSchema>;
+
 
 export function CadastroDadosPessoais() {
   const methods = useForm<FormData>({
     resolver: zodResolver(formSchema),
   });
 
-  const { handleSubmit } = methods;
   const navigate = useNavigate();
   const { setDadosPessoais } = useCadastroStore();
 
@@ -36,11 +73,13 @@ export function CadastroDadosPessoais() {
     <section className="w-full min-h-screen flex flex-col">
       {/* Cabeçalho */}
       <header className="flex flex-row gap-3 w-full justify-center md:justify-start items-center p-4">
-        <img
-          src="/assets/images/logo.jpeg"
-          alt="Logo da Editora"
-          style={{ width: "91.29px", height: "87.23px" }}
-        />
+        <Link to="/">
+          <img
+            src="/assets/images/logo.png"
+            alt="Logo da Editora"
+            className="w-[91.29px] h-[87.23px]"
+          />
+        </Link>
         <h1 className="font-playfair font-semibold text-xl hidden md:block">
           A EDITORA QUE VAI TE ENCANTAR
         </h1>
@@ -62,19 +101,13 @@ export function CadastroDadosPessoais() {
         </div>
 
         {/* Formulário */}
-        <div
-          className="flex flex-col items-center w-full md:w-[50%] p-8 bg-white rounded-lg shadow-xl shadow-gray-400 z-10"
-          style={{
-            borderRadius: "10px",
-            boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
-          }}
-        >
+        <div className="flex flex-col items-center w-full md:w-[50%] p-8 bg-white rounded-lg shadow-xl shadow-gray-400 z-10">
           <h2 className="text-2xl font-bold mb-4 bg-[#57614f] text-white px-3 py-2 rounded-md">
             INFORME SEUS DADOS
           </h2>
 
           <FormProvider {...methods}>
-            <form className="w-full" onSubmit={handleSubmit(onSubmit)}>
+            <form className="w-full" onSubmit={methods.handleSubmit(onSubmit)}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                 {/* Nome Completo */}
                 <div>
@@ -104,6 +137,11 @@ export function CadastroDadosPessoais() {
                     type="email"
                     placeholder="Digite seu e-mail"
                   />
+                  {methods.formState.errors.email && (
+                    <p className="text-xs text-red-500 mt-1">
+                      
+                    </p>
+                  )}
                 </div>
                 {/* Telefone */}
                 <div>
@@ -115,13 +153,18 @@ export function CadastroDadosPessoais() {
                     type="text"
                     placeholder="(xx) 99999-9999"
                   />
+                  {methods.formState.errors.phone && (
+                    <p className="text-xs text-red-500 mt-1">
+
+                    </p>
+                  )}
                 </div>
                 {/* Data de Nascimento */}
                 <div>
                   <label className="block text-sm font-bold mb-2">
                     Data de Nascimento
                   </label>
-                  <InputForm name="birthDate" type="date"/>
+                  <InputForm name="birthDate" type="date" />
                 </div>
                 {/* CPF */}
                 <div>
@@ -131,18 +174,18 @@ export function CadastroDadosPessoais() {
                     type="text"
                     placeholder="Digite seu CPF"
                   />
+                  {methods.formState.errors.cpf && (
+                    <p className="text-xs text-red-500 mt-1">
+
+                    </p>
+                  )}
                 </div>
               </div>
 
               <div className="flex justify-center mt-4">
                 <button
                   type="submit"
-                  style={{
-                    width: "180px",
-                    height: "40px",
-                    fontSize: "14px",
-                  }}
-                  className="py-2 bg-[#d1bda0] font-bold text-black rounded-md hover:bg-[#bca88c]"
+                  className="py-2 px-4 bg-[#d1bda0] font-bold text-black rounded-md hover:bg-[#bca88c] focus:outline-none focus:ring-2 focus:ring-[#57614f]"
                 >
                   CONTINUAR
                 </button>

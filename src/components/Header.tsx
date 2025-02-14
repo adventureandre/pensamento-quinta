@@ -1,84 +1,153 @@
-import { useState } from 'react';
-import { List, UserCircle, MagnifyingGlass, Heart } from 'phosphor-react';
-import { GiShoppingCart } from "react-icons/gi";
-import { Link } from 'react-router-dom';
-import logo from '../../public/assets/images/logo.jpeg';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { List, UserCircle, MagnifyingGlass, Heart, X } from "phosphor-react";
+import ShopBag from "./ShopBag";
+
+import logo from "../../public/assets/images/logo.png";
 
 export const Header = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    return (
-        <>
-            <header className="max-w-[1910px] w-full p-3">
-                <div className='w-full flex justify-around items-center sm:gap-1'>
-                    {/* Banner */}
-                    <Link className='flex flex-row gap-3 w-[280px] items-center' to="/">
-                        <img src={logo} alt="Pensamentos de quinta" className=" w-[80px] ms:w-[160px] min-w-20" />
-                        <h1 className='font-playfair font-semibold text-xl hidden md:block'>A Editora Que Vai Te Encantar!!</h1>
-                    </Link>
+  return (
+    <header className="w-full p-3 shadow-md">
+      <div className="max-w-[1910px] mx-auto flex flex-col md:flex-row flex-wrap items-center justify-between gap-4">
+        {/* Top Row - Mobile */}
+        <div className="w-full flex md:hidden justify-between items-center">
+          <button
+            className="p-2 rounded focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all"
+            onClick={() => setIsMenuOpen(true)}
+          >
+            <List size={28} />
+          </button>
 
-                    {/* Menu */}
-                    <nav className="hidden md:block py-1 text-sm font-bold">
-                        <ul className="flex flex-row gap-12 justify-center">
-                            <li><Link className='transition duration-0 hover:duration-300 hover:border-[#000000] hover:border-b-2' to="/quemsomos">Papelaria Afetiva</Link></li>
-                            <li><Link className='transition duration-0 hover:duration-300 hover:border-[#000000] hover:border-b-2' to="/quemsomos">Quem Somos</Link></li>
-                            <li><Link className='transition duration-0 hover:duration-300 hover:border-[#000000] hover:border-b-2' to="/nossosservicos">Nossos Serviços</Link></li>
-                            <li><Link className='transition duration-0 hover:duration-300 hover:border-[#000000] hover:border-b-2' to="/nossoslivros">Nossos Livros</Link></li>
-                            <li><Link className='transition duration-0 hover:duration-300 hover:border-[#000000] hover:border-b-2' to="/nossosautores">Nossos Autores</Link></li>
-                        </ul>
-                    </nav>
+          {/* Logo Centralizada */}
+          <Link className="flex items-center gap-2" to="/">
+            <img src={logo} alt="Pensamentos de quinta" className="w-16" />
+          </Link>
 
-                    <form className='hidden md:flex' action="">
-                        <label htmlFor="search" className='flex w-full justify-around items-center p-1 rounded-full border-solid border border-gray-500  bg-input bg-opacity-70 px-3 pt-1' style={{
-                            boxShadow: '1px 4px 5px rgba(0, 0, 0, 0.29)',
-                        }}>
-                            <input className='bg-transparent w-[200px] outline-none text-sm text-slate-800 cursor-pointer' id='search' type="search" placeholder='Digite o que você procura' />
-                            <MagnifyingGlass size={20} />
-                        </label>
-                    </form>
+          <div className="flex items-center gap-4">
+            <ShopBag />
+            <Link to="/login">
+              <UserCircle size={28} weight="fill" />
+            </Link>
+          </div>
+        </div>
 
-                    <div className="flex flex-row items-center gap-5 md:gap-1">
-                        <div className='flex justify-around items-center md:w-[288px]'>
-                            {/* Somente para visualizar */}
-                            <Link className='hidden md:block' to="/dashboard/favoritos">
-                                <Heart size={25} weight='fill' className='transition duration-0 hover:duration-150 hover:fill-[#566150]' />
-                            </Link>
-                            <Link to="/checkout" aria-disabled className="relative">
-                                <GiShoppingCart size={30} />
-                                {/*<span className="w-5 h-5 rounded-full bg-accent absolute right-[-8.345px] top-[-8px] flex justify-center items-center">2</span>*/}
-                            </Link>
-                            <Link to="/login">
-                                <UserCircle size={35} weight="fill" />
-                            </Link>
-                           
-                            <p className='hidden md:block'>Dashboard Adm</p>
-                        </div>
+        {/* Barra de Busca Mobile */}
+        <form className="w-full md:hidden mt-2">
+          <label className="flex items-center w-full p-2 rounded-full bg-gray-100 border border-gray-300 px-4 transition-all focus-within:border-gray-500">
+            <input
+              className="bg-transparent w-full outline-none text-sm text-slate-800 placeholder-gray-500"
+              type="search"
+              placeholder="Pesquisar..."
+            />
+            <MagnifyingGlass size={20} className="text-gray-500" />
+          </label>
+        </form>
 
+        {/* Logo Desktop */}
+        <Link className="hidden md:flex items-center gap-4 w-auto" to="/">
+        <img src={logo} alt="Pensamentos de quinta" className="w-12 md:w-20" />
+          <h1 className="font-playfair font-semibold text-lg text-left max-w-[150px] leading-tight">
+            A Editora Que Vai Te Encantar!
+          </h1>
+        </Link>
 
-                        {/* menu mobile */}
-                        <button
-                            className="block md:hidden p-2"
-                            onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        >
-                            <List size={32} />
-                        </button>
-                    </div>
-                </div>
+        {/* Menu Desktop */}
+        <nav className="hidden md:flex flex-1 justify-center">
+          <ul className="flex gap-8 text-sm font-bold">
+            {[
+              ["Papelaria Afetiva", "/quemsomos"],
+              ["Quem Somos", "/quemsomos"],
+              ["Nossos Serviços", "/nossosservicos"],
+              ["Nossos Livros", "/nossoslivros"],
+              ["Nossos Autores", "/nossosautores"],
+            ].map(([title, url]) => (
+              <li key={title}>
+                <Link
+                  className="hover:border-b-2 hover:border-gray-600 transition-all duration-200 px-2"
+                  to={url}
+                >
+                  {title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-                {isMenuOpen && (
-                    <nav className="absolute top-[50%] right-[50%] transform translate-x-1/2 translate-y-1/2 mt-2 bg-secondary shadow-md rounded-md md:hidden w-[250px]">
-                        <ul className="flex flex-col gap-4 p-4">
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to="#">Nossos Livros</Link></li>
-                            <li><Link to="/quemsomos">Quem Somos</Link></li>
-                            <li><Link to="#">Autores</Link></li>
-                        </ul>
-                    </nav>
-                )}
-            </header>
-            <div className='w-full p-1' style={{
-                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
-            }}></div>
-        </>
-    );
-}
+        {/* Right Section Desktop */}
+        <div className="hidden md:flex items-center gap-8">
+          <form className="w-72">
+            <label className="flex items-center w-full p-2 rounded-full bg-gray-50 border border-gray-200 px-4 transition-colors hover:border-gray-400 focus-within:border-gray-500">
+              <input
+                className="bg-transparent w-full outline-none text-sm text-slate-800 placeholder-gray-500"
+                id="search"
+                type="search"
+                placeholder="Digite o que procura"
+              />
+              <MagnifyingGlass size={20} className="text-gray-500" />
+            </label>
+          </form>
+
+          <div className="flex items-center gap-6">
+            <Link
+              to="/dashboard/favoritos"
+              className="transition-all hover:text-gray-600"
+            >
+              <Heart size={24} weight="fill" />
+            </Link>
+            <ShopBag />
+            <Link to="/login" className="transition-all hover:text-gray-600">
+              <UserCircle size={28} weight="fill" />
+            </Link>
+          </div>
+        </div>
+
+        {/* Menu Mobile Lateral */}
+        <div
+          className={`fixed inset-0 z-50 bg-black bg-opacity-30 transition-opacity duration-300 ${
+            isMenuOpen
+              ? "opacity-100 pointer-events-auto"
+              : "opacity-0 pointer-events-none"
+          }`}
+          onClick={() => setIsMenuOpen(false)}
+        >
+          <div
+            className={`fixed inset-y-0 right-0 z-50 w-64 bg-white p-6 rounded-l-lg shadow-2xl transform transition-transform duration-300 ${
+              isMenuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="absolute top-4 right-4 p-2 rounded focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <X size={24} />
+            </button>
+
+            <ul className="mt-12 space-y-4">
+              {[
+                ["Home", "/"],
+                ["Papelaria Afetiva", "/quemsomos"],
+                ["Quem Somos", "/quemsomos"],
+                ["Nossos Serviços", "/nossosservicos"],
+                ["Nossos Livros", "/nossoslivros"],
+                ["Nossos Autores", "/nossosautores"],
+              ].map(([title, url]) => (
+                <li key={title}>
+                  <Link
+                    className="block p-3 hover:bg-gray-100 rounded-lg transition-colors"
+                    to={url}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+};

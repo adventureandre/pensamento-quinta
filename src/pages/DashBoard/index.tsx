@@ -3,8 +3,6 @@ import { MenuDashBoard } from "./components/menu";
 import { PedidosDashboard } from "./Pedidos";
 import { FavoritosDashboard } from "./Favoritos";
 import { EnderecoDashboard } from "./Endereco";
-import { InicioDashboard } from "./Inicio";
-import { CarteiraDashboard } from "./Carteira";
 import { DadosPessoaisDashboard } from "./DadosPessoais";
 
 export function DashboardPage() {
@@ -13,12 +11,6 @@ export function DashboardPage() {
     let ComponentPage;
 
     switch (section) {
-        case "inicio":
-            ComponentPage = InicioDashboard
-            
-
-            break;
-        
         case "pedidos":
             ComponentPage = PedidosDashboard
 
@@ -34,11 +26,6 @@ export function DashboardPage() {
             case "dadospessoais":
                 ComponentPage = DadosPessoaisDashboard
                 break
-
-            case "carteira":
-                ComponentPage = CarteiraDashboard
-                break
-
             
         default:
             ComponentPage = () => <div>Seção indisponivel!</div>

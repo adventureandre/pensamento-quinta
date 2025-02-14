@@ -1,14 +1,15 @@
 # Projeto pensamento de quinta
 
 ## 01  - Front
-- React Vite.
+- React Vite
+- Tailwind para estilização
+- Typescript
 
 ## Utilizando
 
 - Zustand para controle de estado Global.
-- Zod validação.
 - UseForm e zod para validar formularios.
-- phosphor para icons.
+- phosphor e React-icons para icons.
 
 ## Execução do Projeto
 
@@ -32,12 +33,8 @@ Para executar o projeto, siga os passos abaixo:
     ```bash
    npm run dev
 
-3. **Iniciar projeto**:
-  Execute o seguinte comando :
-    ```bash
-   npm run server
 
-4. **Acessar o Projeto**:
+3. **Acessar o Projeto**:
 
    Após iniciar o projeto, você pode acessar o mesmo no seu navegador através do seguinte link:
 
@@ -46,11 +43,3 @@ Para executar o projeto, siga os passos abaixo:
    ```
 
    Não é necessário um token ou senha para acessar.
-
-## Credits
-
-
-
-## License
-
-

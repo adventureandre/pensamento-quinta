@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-   margin: 0 auto;
+/* Importando os estilos do Swiper */
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+@import 'swiper/css/scrollbar';
+@import 'swiper/css/effect-coverflow';
+
+body {
+  margin: 0 auto;
+  font-family: 'Melodrama', sans-serif;
 }

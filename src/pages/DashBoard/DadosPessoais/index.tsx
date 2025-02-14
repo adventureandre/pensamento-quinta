@@ -35,7 +35,7 @@ export function DadosPessoaisDashboard() {
     };
 
     return (
-        <div className="w-full max-w-4xl p-8 bg-white rounded-lg" style={{ fontFamily: 'Times New Roman, serif', boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.1)', borderTop: 'none', borderLeft: 'none' }}>
+        <div className="w-full max-w-screen-lg p-10 bg-white rounded-lg mx-auto font-serif">
             <h1 className="text-3xl font-bold italic text-gray-800 mb-6">Dados Pessoais</h1>
             <FormProvider {...methods}>
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -66,7 +66,7 @@ export function DadosPessoaisDashboard() {
                             <InputForm name='password' type={passwordVisible ? 'text' : 'password'} disabled={!isEditing} placeholder="Digite sua senha" />
                             <button 
                             type="button" 
-                            className=" mr-2 flex h-full float-right absolute right-1 mt-2"
+                            className="mr-2 flex h-full float-right absolute right-1 mt-2"
                             onClick={togglePasswordVisibility}>
                                 {passwordVisible ? <Eye size={22} /> : <EyeSlash size={22} />}
                             </button>

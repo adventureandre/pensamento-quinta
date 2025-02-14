@@ -15,6 +15,7 @@ export default {
         inter: ["Inter", "sans-serif"],
         rockSalt: ["Rock Salt", "cursive"],
         playfair: ["Playfair Display", "serif"],
+        podkova: ['Podkova', 'serif'],
       },
       keyframes: {
         "tracking-in-contract-bck": {

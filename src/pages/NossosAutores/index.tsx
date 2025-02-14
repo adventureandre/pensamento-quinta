@@ -63,7 +63,7 @@ export function NossosAutores() {
               {autores?.map((autor, index) => (
                 <div
                   key={index}
-                  className="bg-white shadow-lg border border-gray-300 rounded-lg p-6 flex flex-col items-center w-72 transform transition-transform hover:scale-105 hover:shadow-2xl"
+                  className="bg-white shadow-lg border border-gray-300 rounded-lg p-6 flex flex-col items-center w-full sm:w-80 md:w-72 lg:w-64 transform transition-transform hover:scale-105 hover:shadow-2xl"
                 >
                   <img
                     src={autor.foto}

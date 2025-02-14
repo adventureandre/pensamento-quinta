@@ -5,10 +5,12 @@ export interface Livro {
   imgSrc: string;
   sinopse: string;
   editora: string;
-  isbn: string;
   paginas: number;
   ano: number;
   edicao: string;
   authorId?: number;
-  author?: string;
+  thumbnailImages?: string[];
+  launch: boolean,
+  highlight: boolean,
+  eBook: boolean
 }

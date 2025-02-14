@@ -1,10 +1,8 @@
-// src/store/livrosStore.ts
 import { api } from "@/lib/api";
 import { Livro } from "@/types/livro";
 import { create } from "zustand";
 
 type LivrosStoreType = {
-  livro: Livro | null;
   livros: Livro[] | null;
   isLoading: boolean;
   load: () => Promise<void>;
@@ -12,7 +10,6 @@ type LivrosStoreType = {
 };
 
 export const livrosStore = create<LivrosStoreType>((set, get) => ({
-  livro: null,
   livros: null,
   isLoading: false,
 
@@ -21,22 +18,8 @@ export const livrosStore = create<LivrosStoreType>((set, get) => ({
 
     try {
       const response = await api("/livros");
-      const data = await response.json();
+      const livros = await response.json();
 
-      const livros: Livro[] = data.map((item: any) => ({
-        id: item.id,
-        title: item.title,
-        price: item.price,
-        imgSrc: item.imgSrc,
-        sinopse: item.sinopse,
-        editora: item.editora,
-        isbn: item.isbn,
-        paginas: item.paginas,
-        ano: item.ano,
-        edicao: item.edicao,
-        authorId: item.authorId,
-        author: item.author,
-      }));
 
       set({ livros, isLoading: false });
     } catch (err) {
@@ -61,22 +44,9 @@ export const livrosStore = create<LivrosStoreType>((set, get) => ({
     // Se não encontrar, busca na API
     try {
       const response = await api(`/livros/${id}`);
-      const data = await response.json();
+      const livro = await response.json();
 
-      const livro: Livro = {
-        id: data.id,
-        title: data.title,
-        price: data.price,
-        imgSrc: data.imgSrc,
-        sinopse: data.sinopse,
-        editora: data.editora,
-        isbn: data.isbn,
-        paginas: data.paginas,
-        ano: data.ano,
-        edicao: data.edicao,
-        authorId: data.authorId,
-        author: data.author,
-      };
+     
 
       set({ isLoading: false });
       return livro;

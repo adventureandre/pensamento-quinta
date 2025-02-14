@@ -71,11 +71,13 @@ export function CadastroEndereco() {
     <section className="w-full min-h-screen flex flex-col">
       {/* Cabeçalho */}
       <header className="flex flex-row gap-3 w-full justify-center md:justify-start items-center p-4">
-        <img
-          src="/assets/images/logo.jpeg"
-          alt="Logo da Editora"
-          style={{ width: "91.29px", height: "87.23px" }}
-        />
+        <Link to="/">
+          <img
+            src="/assets/images/logo.png"
+            alt="Logo da Editora"
+            className="w-[91.29px] h-[87.23px]"
+          />
+        </Link>
         <h1 className="font-playfair font-semibold text-xl hidden md:block">
           A EDITORA QUE VAI TE ENCANTAR
         </h1>
@@ -97,12 +99,7 @@ export function CadastroEndereco() {
         </div>
 
         {/* Formulário */}
-        <div
-          className="w-full max-w-lg p-6 md:p-8 bg-white rounded-lg shadow-xl shadow-gray-400 mx-4 z-10"
-          style={{
-            borderRadius: "10px",
-          }}
-        >
+        <div className="flex flex-col items-center w-full md:w-[50%] p-8 bg-white rounded-lg shadow-xl shadow-gray-400 z-10">
           <h2 className="text-2xl font-bold mb-4 bg-[#57614f] text-white px-4 py-2 rounded-md text-center">
             INFORME SEU ENDEREÇO
           </h2>
@@ -118,12 +115,12 @@ export function CadastroEndereco() {
                   </label>
                   <InputMask
                     mask="99999-999"
-                    className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#57614f] ${formState.errors.cep ? "border-red-500" : ""}`}
+                    className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#57614f] bg-[#d9dbc8] ${formState.errors.cep ? "border-red-500" : ""}`}
                     placeholder="Digite seu CEP"
-                    style={{ backgroundColor: "#d9dbc8" }}
                     {...methods.register("cep")}
                     onBlur={() => handleCepChange(cepValue)}
                   />
+
                   {loadingCep && (
                     <p className="text-sm text-gray-500 mt-1">
                       Buscando endereço...
@@ -197,12 +194,7 @@ export function CadastroEndereco() {
               <div className="flex justify-center mt-6">
                 <button
                   type="submit"
-                  style={{
-                    width: "180px",
-                    height: "40px",
-                    fontSize: "14px",
-                  }}
-                  className="py-2 bg-[#d1bda0] font-bold text-black rounded-md hover:bg-[#bca88c] focus:outline-none focus:ring-2 focus:ring-[#57614f]"
+                  className="w-44 h-10 text-base py-2 bg-[#d1bda0] font-bold text-black rounded-md hover:bg-[#bca88c]"
                 >
                   CONTINUAR
                 </button>

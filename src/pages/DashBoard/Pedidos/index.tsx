@@ -18,9 +18,11 @@ export function PedidosDashboard() {
     const fetchAutores = async () => {
         const autorMap = new Map();
         for (const livro of livros) {
-            if (!autorMap.has(livro.authorId)) {
+            if (livro.authorId && !autorMap.has(livro.authorId)) {
                 const autor = await findAutorById(livro.authorId);
-                autorMap.set(livro.authorId, autor.name);
+                if (autor) {
+                    autorMap.set(livro.authorId, autor.name);
+                }
             }
         }
         setAutores(autorMap);
@@ -31,7 +33,7 @@ export function PedidosDashboard() {
         const livrosArray: Livro[] = [];
         for (const item of pedidos?.products || []) {
             const findLivros = await findLivroId(item);
-            if (!livrosArray.some(livro => livro.id === findLivros.id)) {
+            if (findLivros && !livrosArray.some(livro => livro.id === findLivros.id)) {
                 livrosArray.push(findLivros);
             }
         }
@@ -40,7 +42,7 @@ export function PedidosDashboard() {
 
     useEffect(() => {
         loadPedidos(102);
-    }, []);
+    }, [loadPedidos]);
 
     useEffect(() => {
         if (pedidos?.products?.length) {
@@ -61,7 +63,7 @@ export function PedidosDashboard() {
                 <p>Loading...</p>
             ) : (
                 livros.map((livroView) => {
-                    const autorName = autores.get(livroView.authorId);
+                    const autorName = autores.get(livroView.authorId ?? -1);
                     return (
                         <article key={livroView.id} className='flex items-center gap-3 border-b pb-3 mb-3'>
                             <img className='w-[100px]' src={`${BASE_URL}/${livroView.imgSrc}`} alt={`Livro ${livroView.title}`} />

@@ -8,11 +8,10 @@ import { FaFacebook } from "react-icons/fa";
 import { InputForm } from "@/components/InputForm";
 import { Link, useNavigate } from "react-router-dom";
 
-const formSchema = z
-  .object({
-    email: z.string().email("E-mail inválido."),
-    password: z.string().min(6, "Senha deve ter pelo menos 6 caracteres."),
-  });
+const formSchema = z.object({
+  email: z.string().email("E-mail inválido."),
+  password: z.string().min(6, "Senha deve ter pelo menos 6 caracteres."),
+});
 
 type FormData = z.infer<typeof formSchema>;
 
@@ -29,12 +28,7 @@ export function LoginPage() {
 
   const onSubmit = (data: FormData) => {
     console.log(data, savePassword);
-    // Navegar para dashboard/inicio
-    navigate("/dashboard/inicio");
-  };
-
-  const togglePasswordVisibility = () => {
-    setPasswordVisible(!passwordVisible);
+    navigate("/dashboard/dadospessoais");
   };
 
   const handleSavePasswordChange = (
@@ -55,11 +49,13 @@ export function LoginPage() {
   return (
     <section className="w-full h-[80vh]">
       <header className="flex flex-row gap-3 w-full justify-center md:justify-start items-center p-4">
-        <img
-          src="/assets/images/logo.jpeg"
-          alt="Logo da Editora"
-          style={{ width: "91.29px", height: "87.23px" }}
-        />
+      <Link to="/">
+          <img
+            src="/assets/images/logo.png"
+            alt="Logo da Editora"
+            className="w-[91.29px] h-[87.23px]"
+          />
+        </Link>
         <h1 className="font-playfair font-semibold text-xl hidden md:block">
           A EDITORA QUE VAI TE ENCANTAR
         </h1>
@@ -80,13 +76,7 @@ export function LoginPage() {
           />
         </div>
 
-        <div
-          className="flex flex-col items-center w-full md:w-1/2 p-8 bg-white rounded-lg shadow-xl shadow-gray-400"
-          style={{
-            borderRadius: "10px",
-            boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
-          }}
-        >
+        <div className="flex flex-col items-center w-full md:w-[50%] p-8 bg-white rounded-lg shadow-xl shadow-gray-400 z-10">
           <h2 className="text-2xl font-bold mb-2 bg-[#57614f] text-white px-3">
             Já possuo cadastro!
           </h2>
@@ -117,10 +107,14 @@ export function LoginPage() {
                   />
                   <button
                     type="button"
-                    className="mr-2 absolute right-1 top-1/2 transform -translate-y-1/2"
-                    onClick={togglePasswordVisibility}
+                    className="absolute right-3 top-2 text-gray-500"
+                    onClick={() => setPasswordVisible(!passwordVisible)}
                   >
-                    {passwordVisible ? <Eye size={20} /> : <EyeSlash size={20} />}
+                    {passwordVisible ? (
+                      <Eye size={20} />
+                    ) : (
+                      <EyeSlash size={20} />
+                    )}
                   </button>
                 </div>
               </div>
@@ -134,7 +128,10 @@ export function LoginPage() {
                     onChange={handleSavePasswordChange}
                     className="mr-2"
                   />
-                  <label htmlFor="savePassword" className="text-sm text-gray-600">
+                  <label
+                    htmlFor="savePassword"
+                    className="text-sm text-gray-600"
+                  >
                     Salvar minha senha
                   </label>
                 </div>
@@ -146,15 +143,10 @@ export function LoginPage() {
                 </Link>
               </div>
 
-              <div className="flex justify-center">
+              <div className="flex justify-center mt-4">
                 <button
                   type="submit"
-                  style={{
-                    width: "180px",
-                    height: "40px",
-                    fontSize: "14px",
-                  }}
-                  className="py-2 bg-[#d1bda0] font-bold text-black rounded-md hover:bg-[#bca88c]"
+                  className="w-44 h-10 text-base py-2 bg-[#d1bda0] font-bold text-black rounded-md hover:bg-[#bca88c]"
                 >
                   ENTRAR
                 </button>
@@ -164,8 +156,7 @@ export function LoginPage() {
 
           {/* Botões de login social simplificados */}
           <div className="w-full">
-            <div className="flex items-center justify-center">
-            </div>
+            <div className="flex items-center justify-center"></div>
             <div className="flex items-center justify-center gap-4 mt-4">
               <button
                 onClick={handleGoogleSignIn}
@@ -187,7 +178,7 @@ export function LoginPage() {
             <p className="text-black font-bold text-sm">
               Ainda não possui conta? &nbsp;
               <Link to="/cadastro" className="underline">
-                Faça sua conta aqui
+                Crie sua conta aqui
               </Link>
             </p>
           </div>

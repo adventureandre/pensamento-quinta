@@ -71,24 +71,27 @@ export function CadastroSenha() {
     <section className="w-full min-h-screen flex flex-col">
       {/* Cabeçalho */}
       <header className="flex flex-row gap-3 w-full justify-center md:justify-start items-center p-4">
-        <img
-          src="/assets/images/logo.jpeg"
-          alt="Logo da Editora"
-          style={{ width: "91.29px", height: "87.23px" }}
-        />
+        <Link to="/">
+          <img
+            src="/assets/images/logo.png"
+            alt="Logo da Editora"
+            style={{ width: "91.29px", height: "87.23px" }}
+          />
+        </Link>
         <h1 className="font-playfair font-semibold text-xl hidden md:block">
           A EDITORA QUE VAI TE ENCANTAR
         </h1>
       </header>
-      <main className="flex flex-col flex-wrap justify-center items-center w-full  h-[100%]">
-        <div className="hidden absolute top-0 right-0 lg:block">
+      
+      <main className="flex flex-col justify-center items-center w-full h-full px-4">
+        <div className="hidden lg:block absolute top-0 right-0">
           <img
             src="/assets/images/livros_cadastro_cima.png"
             alt="Livros"
             className="w-[200px] sm:w-[300px]"
           />
         </div>
-        <div className="hidden absolute bottom-0 left-0 lg:block">
+        <div className="hidden lg:block absolute bottom-0 left-0">
           <img
             src="/assets/images/livros_cadastro.png"
             alt="Livros"
@@ -97,13 +100,7 @@ export function CadastroSenha() {
         </div>
 
         {/* Formulário */}
-        <div
-          className="flex flex-col items-center w-full md:w-[50%] p-8 bg-white rounded-lg shadow-xl shadow-gray-400 z-10"
-          style={{
-            borderRadius: "10px",
-            boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
-          }}
-        >
+        <div className="flex flex-col items-center w-full md:w-[50%] p-8 bg-white rounded-lg shadow-xl z-10">
           <h2 className="text-2xl font-bold mb-4 bg-[#57614f] text-white px-3 py-2 rounded-md">
             CRIE SUA SENHA
           </h2>
@@ -167,33 +164,16 @@ export function CadastroSenha() {
                 <p className="text-sm font-bold mb-1">Força da senha:</p>
                 <div className="w-full bg-gray-200 rounded">
                   <div
-                    className={`h-2 rounded ${
-                      verificaForcaSenha() >= 5
-                        ? "bg-green-500"
-                        : verificaForcaSenha() >= 3
-                        ? "bg-yellow-500"
-                        : "bg-red-500"
-                    }`}
+                    className={`h-2 rounded ${verificaForcaSenha() >= 5 ? "bg-green-500" : verificaForcaSenha() >= 3 ? "bg-yellow-500" : "bg-red-500"}`}
                     style={{ width: `${(verificaForcaSenha() / 5) * 100}%` }}
                   ></div>
                 </div>
                 <ul className="text-sm mt-2">
-                  <li>
-                    {password.length >= 8 ? "✅" : "❌"} Pelo menos 8 caracteres
-                  </li>
-                  <li>
-                    {/[a-z]/.test(password) ? "✅" : "❌"} Letra minúscula
-                  </li>
-                  <li>
-                    {/[A-Z]/.test(password) ? "✅" : "❌"} Letra maiúscula
-                  </li>
-                  <li>
-                    {/[0-9]/.test(password) ? "✅" : "❌"} Número
-                  </li>
-                  <li>
-                    {/[!@#$%^&*(),.?":{}|<>]/.test(password) ? "✅" : "❌"} Caractere
-                    especial
-                  </li>
+                  <li>{password.length >= 8 ? "✅" : "❌"} Pelo menos 8 caracteres</li>
+                  <li>{/[a-z]/.test(password) ? "✅" : "❌"} Letra minúscula</li>
+                  <li>{/[A-Z]/.test(password) ? "✅" : "❌"} Letra maiúscula</li>
+                  <li>{/[0-9]/.test(password) ? "✅" : "❌"} Número</li>
+                  <li>{/[!@#$%^&*(),.?":{}|<>]/.test(password) ? "✅" : "❌"} Caractere especial</li>
                 </ul>
               </div>
 
@@ -201,11 +181,7 @@ export function CadastroSenha() {
               <div className="flex justify-center mt-4">
                 <button
                   type="submit"
-                  style={{
-                    width: "180px",
-                    height: "40px",
-                    fontSize: "14px",
-                  }}
+                  style={{ width: "180px", height: "40px", fontSize: "14px" }}
                   className="py-2 bg-[#d1bda0] font-bold text-black rounded-md hover:bg-[#bca88c]"
                 >
                   CONCLUIR CADASTRO

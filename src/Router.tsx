@@ -13,6 +13,7 @@ import { NossosAutores } from "./pages/NossosAutores";
 import { AuthLayout } from "./layouts/AuthLayout";
 import { LoginPage } from "./pages/LoginCadastro/loginPage";
 import { Checkout } from "./pages/Checkout";
+import { PapelariaAfetiva } from "./pages/Papelaria"
 
 
 export function Router() {
@@ -28,6 +29,7 @@ export function Router() {
           <Route path="livros/:id" element={<Livros />} />
           <Route path="nossosautores" element={<NossosAutores />} />
           <Route path="checkout" element={<Checkout />} />
+          <Route path="papelariaafetiva" element = {<PapelariaAfetiva />} />
           <Route path="dashboard/:section" element={<DashboardPage />} />
         </Route>
 

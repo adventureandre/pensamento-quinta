@@ -1,0 +1,65 @@
+@font-face {
+    font-family: 'Melodrama';
+    src: url('Melodrama-Bold.eot');
+    src: local('Melodrama Bold'), local('Melodrama-Bold'),
+        url('Melodrama-Bold.eot?#iefix') format('embedded-opentype'),
+        url('Melodrama-Bold.woff2') format('woff2'),
+        url('Melodrama-Bold.woff') format('woff'),
+        url('Melodrama-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Melodrama';
+    src: url('Melodrama-Medium.eot');
+    src: local('Melodrama Medium'), local('Melodrama-Medium'),
+        url('Melodrama-Medium.eot?#iefix') format('embedded-opentype'),
+        url('Melodrama-Medium.woff2') format('woff2'),
+        url('Melodrama-Medium.woff') format('woff'),
+        url('Melodrama-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Melodrama';
+    src: url('Melodrama-Semibold.eot');
+    src: local('Melodrama Semibold'), local('Melodrama-Semibold'),
+        url('Melodrama-Semibold.eot?#iefix') format('embedded-opentype'),
+        url('Melodrama-Semibold.woff2') format('woff2'),
+        url('Melodrama-Semibold.woff') format('woff'),
+        url('Melodrama-Semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Melodrama';
+    src: url('Melodrama-Regular.eot');
+    src: local('Melodrama Regular'), local('Melodrama-Regular'),
+        url('Melodrama-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Melodrama-Regular.woff2') format('woff2'),
+        url('Melodrama-Regular.woff') format('woff'),
+        url('Melodrama-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Melodrama';
+    src: url('Melodrama-Light.eot');
+    src: local('Melodrama Light'), local('Melodrama-Light'),
+        url('Melodrama-Light.eot?#iefix') format('embedded-opentype'),
+        url('Melodrama-Light.woff2') format('woff2'),
+        url('Melodrama-Light.woff') format('woff'),
+        url('Melodrama-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
